@@ -1,0 +1,661 @@
+Category,Subcategory,Parameter,Parameter_ID,Unit,Requirement,Requirement_Min,Requirement_Max,Preferred_Value,Comparison_Type,Weight,Critical,Vendor,Model,Vendor_Value,Test_Condition,Source,Source_Date,Remarks
+Basic Configuration,Type,PCS Type,P001,,Central/String,,,,Text,2,NO,DemoVolt PCS-A,DV-2500-L,Central,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Type,PCS Type,P001,,Central/String,,,,Text,2,NO,GridCore PCS-B,GC-2500-A,Central,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Type,PCS Type,P001,,Central/String,,,,Text,2,NO,PowerStack PCS-C,PS-2200-L,String,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Type,PCS Architecture,P002,,Modular preferred,,,,Text,2,NO,DemoVolt PCS-A,DV-2500-L,Modular,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Type,PCS Architecture,P002,,Modular preferred,,,,Text,2,NO,GridCore PCS-B,GC-2500-A,Modular,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Type,PCS Architecture,P002,,Modular preferred,,,,Text,2,NO,PowerStack PCS-C,PS-2200-L,Modular,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Power,Rated Power,P003,kW,≥ 2500,2500,,2500,Higher_Better,5,YES,DemoVolt PCS-A,DV-2500-L,2500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Power,Rated Power,P003,kW,≥ 2500,2500,,2500,Higher_Better,5,YES,GridCore PCS-B,GC-2500-A,2500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Power,Rated Power,P003,kW,≥ 2500,2500,,2500,Higher_Better,5,YES,PowerStack PCS-C,PS-2200-L,2200,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Power,Maximum Power,P004,kW,≥ 2500,2500,,,Higher_Better,3,NO,DemoVolt PCS-A,DV-2500-L,2750,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Power,Maximum Power,P004,kW,≥ 2500,2500,,,Higher_Better,3,NO,GridCore PCS-B,GC-2500-A,2600,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Power,Maximum Power,P004,kW,≥ 2500,2500,,,Higher_Better,3,NO,PowerStack PCS-C,PS-2200-L,2400,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Power,Continuous Power,P005,kW,≥ 2500,2500,,,Higher_Better,3,NO,DemoVolt PCS-A,DV-2500-L,2500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Power,Continuous Power,P005,kW,≥ 2500,2500,,,Higher_Better,3,NO,GridCore PCS-B,GC-2500-A,2500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Power,Continuous Power,P005,kW,≥ 2500,2500,,,Higher_Better,3,NO,PowerStack PCS-C,PS-2200-L,2200,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Config,Modular/Standalone,P006,,Modular,,,,Text,2,NO,DemoVolt PCS-A,DV-2500-L,Modular,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Config,Modular/Standalone,P006,,Modular,,,,Text,2,NO,GridCore PCS-B,GC-2500-A,Modular,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Config,Modular/Standalone,P006,,Modular,,,,Text,2,NO,PowerStack PCS-C,PS-2200-L,Modular,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Config,Number of Power Modules,P007,nos,,,,,Higher_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Basic Configuration,Config,Number of Power Modules,P007,nos,,,,,Higher_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Basic Configuration,Config,Number of Power Modules,P007,nos,,,,,Higher_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Basic Configuration,Config,Parallel PCS Capability,P008,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Config,Parallel PCS Capability,P008,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Config,Parallel PCS Capability,P008,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Config,Transformer Requirement,P009,,,,,,Text,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Basic Configuration,Config,Transformer Requirement,P009,,,,,,Text,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Basic Configuration,Config,Transformer Requirement,P009,,,,,,Text,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Basic Configuration,Config,Transformer Integrated,P010,,,,,,Boolean,1,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Config,Transformer Integrated,P010,,,,,,Boolean,1,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Config,Transformer Integrated,P010,,,,,,Boolean,1,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Cooling,Cooling Type,P011,,Liquid/Forced air,,,,Text,3,NO,DemoVolt PCS-A,DV-2500-L,Liquid,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Cooling,Cooling Type,P011,,Liquid/Forced air,,,,Text,3,NO,GridCore PCS-B,GC-2500-A,Forced air,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Cooling,Cooling Type,P011,,Liquid/Forced air,,,,Text,3,NO,PowerStack PCS-C,PS-2200-L,Liquid,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Enclosure,IP Rating,P012,IP,≥ 54,54,,65,Higher_Better,4,NO,DemoVolt PCS-A,DV-2500-L,65,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Enclosure,IP Rating,P012,IP,≥ 54,54,,65,Higher_Better,4,NO,GridCore PCS-B,GC-2500-A,66,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Enclosure,IP Rating,P012,IP,≥ 54,54,,65,Higher_Better,4,NO,PowerStack PCS-C,PS-2200-L,54,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Install,Installation Type,P013,,,,,,Text,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Basic Configuration,Install,Installation Type,P013,,,,,,Text,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Basic Configuration,Install,Installation Type,P013,,,,,,Text,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Basic Configuration,Install,Indoor/Outdoor,P014,,Outdoor,,,,Text,2,NO,DemoVolt PCS-A,DV-2500-L,Outdoor,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Install,Indoor/Outdoor,P014,,Outdoor,,,,Text,2,NO,GridCore PCS-B,GC-2500-A,Outdoor,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Basic Configuration,Install,Indoor/Outdoor,P014,,Outdoor,,,,Text,2,NO,PowerStack PCS-C,PS-2200-L,Outdoor,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Voltage,Minimum DC Voltage,P015,V,≤ 1000,,1000,,Lower_Better,4,YES,DemoVolt PCS-A,DV-2500-L,1000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Voltage,Minimum DC Voltage,P015,V,≤ 1000,,1000,,Lower_Better,4,YES,GridCore PCS-B,GC-2500-A,950,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Voltage,Minimum DC Voltage,P015,V,≤ 1000,,1000,,Lower_Better,4,YES,PowerStack PCS-C,PS-2200-L,1100,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Voltage,Nominal DC Voltage,P016,V,,,,,Range,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+DC Electrical,Voltage,Nominal DC Voltage,P016,V,,,,,Range,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+DC Electrical,Voltage,Nominal DC Voltage,P016,V,,,,,Range,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+DC Electrical,Voltage,Maximum DC Voltage,P017,V,≥ 1500,1500,,1500,Higher_Better,4,YES,DemoVolt PCS-A,DV-2500-L,1500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Voltage,Maximum DC Voltage,P017,V,≥ 1500,1500,,1500,Higher_Better,4,YES,GridCore PCS-B,GC-2500-A,1500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Voltage,Maximum DC Voltage,P017,V,≥ 1500,1500,,1500,Higher_Better,4,YES,PowerStack PCS-C,PS-2200-L,1500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Voltage,DC Operating Voltage Range,P018,V,1000-1500,1000,1500,,Range,5,YES,DemoVolt PCS-A,DV-2500-L,1000-1500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Voltage,DC Operating Voltage Range,P018,V,1000-1500,1000,1500,,Range,5,YES,GridCore PCS-B,GC-2500-A,950-1500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Voltage,DC Operating Voltage Range,P018,V,1000-1500,1000,1500,,Range,5,YES,PowerStack PCS-C,PS-2200-L,1100-1500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Current,Rated DC Current,P019,A,,,,,Higher_Better,3,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+DC Electrical,Current,Rated DC Current,P019,A,,,,,Higher_Better,3,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+DC Electrical,Current,Rated DC Current,P019,A,,,,,Higher_Better,3,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+DC Electrical,Current,Maximum DC Current,P020,A,,,,,Higher_Better,3,YES,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+DC Electrical,Current,Maximum DC Current,P020,A,,,,,Higher_Better,3,YES,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+DC Electrical,Current,Maximum DC Current,P020,A,,,,,Higher_Better,3,YES,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+DC Electrical,Current,Continuous DC Current,P021,A,,,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+DC Electrical,Current,Continuous DC Current,P021,A,,,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+DC Electrical,Current,Continuous DC Current,P021,A,,,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+DC Electrical,Current,DC Overload Current,P022,A,,,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+DC Electrical,Current,DC Overload Current,P022,A,,,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+DC Electrical,Current,DC Overload Current,P022,A,,,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+DC Electrical,Quality,DC Ripple Current,P023,%,≤ 3,,3,,Lower_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+DC Electrical,Quality,DC Ripple Current,P023,%,≤ 3,,3,,Lower_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+DC Electrical,Quality,DC Ripple Current,P023,%,≤ 3,,3,,Lower_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+DC Electrical,Accuracy,DC Voltage Accuracy,P024,%,≤ 1,,1,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+DC Electrical,Accuracy,DC Voltage Accuracy,P024,%,≤ 1,,1,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+DC Electrical,Accuracy,DC Voltage Accuracy,P024,%,≤ 1,,1,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+DC Electrical,Accuracy,DC Current Accuracy,P025,%,≤ 1,,1,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+DC Electrical,Accuracy,DC Current Accuracy,P025,%,≤ 1,,1,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+DC Electrical,Accuracy,DC Current Accuracy,P025,%,≤ 1,,1,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+DC Electrical,Protection,DC Isolation,P026,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,DC Isolation,P026,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,DC Isolation,P026,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,Insulation Monitoring,P027,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,Insulation Monitoring,P027,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,Insulation Monitoring,P027,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,Reverse Polarity Protection,P028,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,Reverse Polarity Protection,P028,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,Reverse Polarity Protection,P028,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,DC Contactor,P029,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,DC Contactor,P029,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,DC Contactor,P029,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,Pre-charge Function,P030,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,Pre-charge Function,P030,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,Pre-charge Function,P030,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,DC Fuse,P031,,YES,,,,Boolean,1,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,DC Fuse,P031,,YES,,,,Boolean,1,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,DC Fuse,P031,,YES,,,,Boolean,1,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,Ground Fault Detection,P032,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,Ground Fault Detection,P032,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+DC Electrical,Protection,Ground Fault Detection,P032,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Power,Rated AC Power,P033,kVA,≥ 2500,2500,,,Higher_Better,5,YES,DemoVolt PCS-A,DV-2500-L,2500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Power,Rated AC Power,P033,kVA,≥ 2500,2500,,,Higher_Better,5,YES,GridCore PCS-B,GC-2500-A,2500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Power,Rated AC Power,P033,kVA,≥ 2500,2500,,,Higher_Better,5,YES,PowerStack PCS-C,PS-2200-L,2200,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Power,Maximum AC Power,P034,kVA,,,,,Higher_Better,3,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+AC Electrical,Power,Maximum AC Power,P034,kVA,,,,,Higher_Better,3,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+AC Electrical,Power,Maximum AC Power,P034,kVA,,,,,Higher_Better,3,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+AC Electrical,Voltage,AC Voltage,P035,V,690,,,,Range,4,YES,DemoVolt PCS-A,DV-2500-L,690,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Voltage,AC Voltage,P035,V,690,,,,Range,4,YES,GridCore PCS-B,GC-2500-A,690,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Voltage,AC Voltage,P035,V,690,,,,Range,4,YES,PowerStack PCS-C,PS-2200-L,690,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Voltage,AC Voltage Range,P036,V,,,,,Range,3,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+AC Electrical,Voltage,AC Voltage Range,P036,V,,,,,Range,3,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+AC Electrical,Voltage,AC Voltage Range,P036,V,,,,,Range,3,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+AC Electrical,Freq,AC Frequency,P037,Hz,50,,,,Range,3,NO,DemoVolt PCS-A,DV-2500-L,50,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Freq,AC Frequency,P037,Hz,50,,,,Range,3,NO,GridCore PCS-B,GC-2500-A,50,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Freq,AC Frequency,P037,Hz,50,,,,Range,3,NO,PowerStack PCS-C,PS-2200-L,50,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Freq,Frequency Range,P038,Hz,47.5-51.5,,,,Range,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+AC Electrical,Freq,Frequency Range,P038,Hz,47.5-51.5,,,,Range,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+AC Electrical,Freq,Frequency Range,P038,Hz,47.5-51.5,,,,Range,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+AC Electrical,Current,Rated AC Current,P039,A,,,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+AC Electrical,Current,Rated AC Current,P039,A,,,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+AC Electrical,Current,Rated AC Current,P039,A,,,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+AC Electrical,Current,Maximum AC Current,P040,A,,,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+AC Electrical,Current,Maximum AC Current,P040,A,,,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+AC Electrical,Current,Maximum AC Current,P040,A,,,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+AC Electrical,PF,Power Factor Range,P041,,-1 to +1,,,,Range,3,NO,DemoVolt PCS-A,DV-2500-L,-1 to +1,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,PF,Power Factor Range,P041,,-1 to +1,,,,Range,3,NO,GridCore PCS-B,GC-2500-A,-1 to +1,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,PF,Power Factor Range,P041,,-1 to +1,,,,Range,3,NO,PowerStack PCS-C,PS-2200-L,-0.9 to +0.9,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Reactive,Reactive Power,P042,kVAr,,,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+AC Electrical,Reactive,Reactive Power,P042,kVAr,,,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+AC Electrical,Reactive,Reactive Power,P042,kVAr,,,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+AC Electrical,Reactive,Reactive Power at Rated Power,P043,kVAr,,,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+AC Electrical,Reactive,Reactive Power at Rated Power,P043,kVAr,,,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+AC Electrical,Reactive,Reactive Power at Rated Power,P043,kVAr,,,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+AC Electrical,Quality,THDi,P044,%,≤ 3,,3,2,Lower_Better,4,NO,DemoVolt PCS-A,DV-2500-L,2.1,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Quality,THDi,P044,%,≤ 3,,3,2,Lower_Better,4,NO,GridCore PCS-B,GC-2500-A,2.5,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Quality,THDi,P044,%,≤ 3,,3,2,Lower_Better,4,NO,PowerStack PCS-C,PS-2200-L,3.2,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Quality,DC Injection,P045,%,≤ 0.5,,0.5,,Lower_Better,2,NO,DemoVolt PCS-A,DV-2500-L,0.3,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Quality,DC Injection,P045,%,≤ 0.5,,0.5,,Lower_Better,2,NO,GridCore PCS-B,GC-2500-A,0.4,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Quality,DC Injection,P045,%,≤ 0.5,,0.5,,Lower_Better,2,NO,PowerStack PCS-C,PS-2200-L,0.5,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Quality,AC Voltage THD,P046,%,≤ 3,,3,,Lower_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+AC Electrical,Quality,AC Voltage THD,P046,%,≤ 3,,3,,Lower_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+AC Electrical,Quality,AC Voltage THD,P046,%,≤ 3,,3,,Lower_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+AC Electrical,Config,Three Phase,P047,,YES,,,,Boolean,1,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Config,Three Phase,P047,,YES,,,,Boolean,1,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Config,Three Phase,P047,,YES,,,,Boolean,1,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+AC Electrical,Config,Grid Connection Type,P048,,,,,,Text,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+AC Electrical,Config,Grid Connection Type,P048,,,,,,Text,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+AC Electrical,Config,Grid Connection Type,P048,,,,,,Text,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Performance & Efficiency,Efficiency,Maximum Efficiency,P049,%,≥ 99,99,,99,Higher_Better,5,NO,DemoVolt PCS-A,DV-2500-L,99,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Maximum Efficiency,P049,%,≥ 99,99,,99,Higher_Better,5,NO,GridCore PCS-B,GC-2500-A,98.8,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Maximum Efficiency,P049,%,≥ 99,99,,99,Higher_Better,5,NO,PowerStack PCS-C,PS-2200-L,98.5,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Efficiency @ 10% Load,P050,%,,,,,Higher_Better,1,NO,DemoVolt PCS-A,DV-2500-L,97.5,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Efficiency @ 10% Load,P050,%,,,,,Higher_Better,1,NO,GridCore PCS-B,GC-2500-A,97,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Efficiency @ 10% Load,P050,%,,,,,Higher_Better,1,NO,PowerStack PCS-C,PS-2200-L,96.5,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Efficiency @ 25% Load,P051,%,,,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,98.5,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Efficiency @ 25% Load,P051,%,,,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,98.2,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Efficiency @ 25% Load,P051,%,,,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,97.8,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Efficiency @ 50% Load,P052,%,≥ 98,98,,,Higher_Better,4,NO,DemoVolt PCS-A,DV-2500-L,99,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Efficiency @ 50% Load,P052,%,≥ 98,98,,,Higher_Better,4,NO,GridCore PCS-B,GC-2500-A,98.7,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Efficiency @ 50% Load,P052,%,≥ 98,98,,,Higher_Better,4,NO,PowerStack PCS-C,PS-2200-L,98.2,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Efficiency @ 75% Load,P053,%,,,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,98.9,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Efficiency @ 75% Load,P053,%,,,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,98.6,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Efficiency @ 75% Load,P053,%,,,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,98.1,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Efficiency @ 100% Load,P054,%,≥ 98,98,,,Higher_Better,3,NO,DemoVolt PCS-A,DV-2500-L,98.7,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Efficiency @ 100% Load,P054,%,≥ 98,98,,,Higher_Better,3,NO,GridCore PCS-B,GC-2500-A,98.4,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Efficiency @ 100% Load,P054,%,≥ 98,98,,,Higher_Better,3,NO,PowerStack PCS-C,PS-2200-L,97.9,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,European Efficiency,P055,%,≥ 98.5,98.5,,,Higher_Better,4,NO,DemoVolt PCS-A,DV-2500-L,98.7,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,European Efficiency,P055,%,≥ 98.5,98.5,,,Higher_Better,4,NO,GridCore PCS-B,GC-2500-A,98.5,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,European Efficiency,P055,%,≥ 98.5,98.5,,,Higher_Better,4,NO,PowerStack PCS-C,PS-2200-L,98,"50% load, 1250Vdc, 25°C",Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Efficiency,Weighted Efficiency,P056,%,,,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,"50% load, 1250Vdc, 25°C",,,Data Pending
+Performance & Efficiency,Efficiency,Weighted Efficiency,P056,%,,,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,,"50% load, 1250Vdc, 25°C",,,Data Pending
+Performance & Efficiency,Efficiency,Weighted Efficiency,P056,%,,,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,,"50% load, 1250Vdc, 25°C",,,Data Pending
+Performance & Efficiency,Aux,Standby Power,P057,W,,,,,Lower_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Performance & Efficiency,Aux,Standby Power,P057,W,,,,,Lower_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Performance & Efficiency,Aux,Standby Power,P057,W,,,,,Lower_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Performance & Efficiency,Aux,Standby Consumption,P058,W,,,,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Performance & Efficiency,Aux,Standby Consumption,P058,W,,,,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Performance & Efficiency,Aux,Standby Consumption,P058,W,,,,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Performance & Efficiency,Aux,Night-time Consumption,P059,W,,,,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Performance & Efficiency,Aux,Night-time Consumption,P059,W,,,,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Performance & Efficiency,Aux,Night-time Consumption,P059,W,,,,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Performance & Efficiency,Aux,Auxiliary Consumption,P060,W,,,,,Lower_Better,2,NO,DemoVolt PCS-A,DV-2500-L,350,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Aux,Auxiliary Consumption,P060,W,,,,,Lower_Better,2,NO,GridCore PCS-B,GC-2500-A,420,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Performance & Efficiency,Aux,Auxiliary Consumption,P060,W,,,,,Lower_Better,2,NO,PowerStack PCS-C,PS-2200-L,500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Overload Capability,Overload,105% Overload Duration,P061,s,,,,,Higher_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Overload Capability,Overload,105% Overload Duration,P061,s,,,,,Higher_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Overload Capability,Overload,105% Overload Duration,P061,s,,,,,Higher_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Overload Capability,Overload,110% Overload Duration,P062,s,≥ 60,60,,,Higher_Better,3,NO,DemoVolt PCS-A,DV-2500-L,600,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Overload Capability,Overload,110% Overload Duration,P062,s,≥ 60,60,,,Higher_Better,3,NO,GridCore PCS-B,GC-2500-A,120,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Overload Capability,Overload,110% Overload Duration,P062,s,≥ 60,60,,,Higher_Better,3,NO,PowerStack PCS-C,PS-2200-L,60,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Overload Capability,Overload,120% Overload Duration,P063,s,≥ 60,60,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,120,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Overload Capability,Overload,120% Overload Duration,P063,s,≥ 60,60,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,60,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Overload Capability,Overload,120% Overload Duration,P063,s,≥ 60,60,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,30,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Overload Capability,Overload,125% Overload Duration,P064,s,,,,,Higher_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Overload Capability,Overload,125% Overload Duration,P064,s,,,,,Higher_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Overload Capability,Overload,125% Overload Duration,P064,s,,,,,Higher_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Overload Capability,Overload,150% Overload Duration,P065,s,,,,,Higher_Better,1,NO,DemoVolt PCS-A,DV-2500-L,5,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Overload Capability,Overload,150% Overload Duration,P065,s,,,,,Higher_Better,1,NO,GridCore PCS-B,GC-2500-A,2,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Overload Capability,Overload,150% Overload Duration,P065,s,,,,,Higher_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Overload Capability,Current,Maximum AC Current (Overload),P066,A,,,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Overload Capability,Current,Maximum AC Current (Overload),P066,A,,,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Overload Capability,Current,Maximum AC Current (Overload),P066,A,,,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Overload Capability,Current,Maximum DC Current (Overload),P067,A,,,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Overload Capability,Current,Maximum DC Current (Overload),P067,A,,,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Overload Capability,Current,Maximum DC Current (Overload),P067,A,,,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Overload Capability,Fault,Short Circuit Current,P068,A,,,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,6000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Overload Capability,Fault,Short Circuit Current,P068,A,,,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,5000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Overload Capability,Fault,Short Circuit Current,P068,A,,,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,4000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Overload Capability,Fault,Fault Current Contribution,P069,A,,,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Overload Capability,Fault,Fault Current Contribution,P069,A,,,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Overload Capability,Fault,Fault Current Contribution,P069,A,,,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Grid Support,Mode,Grid Following,P070,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Mode,Grid Following,P070,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Mode,Grid Following,P070,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Mode,Grid Forming,P071,,YES,,,,Boolean,5,YES,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Mode,Grid Forming,P071,,YES,,,,Boolean,5,YES,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Mode,Grid Forming,P071,,YES,,,,Boolean,5,YES,PowerStack PCS-C,PS-2200-L,NO,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,RideThrough,LVRT,P072,,YES,,,,Boolean,5,YES,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,RideThrough,LVRT,P072,,YES,,,,Boolean,5,YES,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,RideThrough,LVRT,P072,,YES,,,,Boolean,5,YES,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,RideThrough,HVRT,P073,,YES,,,,Boolean,4,YES,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,RideThrough,HVRT,P073,,YES,,,,Boolean,4,YES,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,RideThrough,HVRT,P073,,YES,,,,Boolean,4,YES,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,RideThrough,Frequency Ride Through,P074,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,RideThrough,Frequency Ride Through,P074,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,RideThrough,Frequency Ride Through,P074,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Active Power Control,P075,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Active Power Control,P075,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Active Power Control,P075,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Reactive Power Control,P076,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Reactive Power Control,P076,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Reactive Power Control,P076,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Volt-VAR,P077,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Volt-VAR,P077,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Volt-VAR,P077,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Volt-Watt,P078,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Volt-Watt,P078,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Volt-Watt,P078,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Frequency-Watt,P079,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Frequency-Watt,P079,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Frequency-Watt,P079,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Droop Control,P080,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Droop Control,P080,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Control,Droop Control,P080,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Dynamic,Active Power Ramp Rate,P081,%/s,,,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Grid Support,Dynamic,Active Power Ramp Rate,P081,%/s,,,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Grid Support,Dynamic,Active Power Ramp Rate,P081,%/s,,,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Grid Support,Dynamic,Reactive Power Response Time,P082,ms,,,,,Lower_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Grid Support,Dynamic,Reactive Power Response Time,P082,ms,,,,,Lower_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Grid Support,Dynamic,Reactive Power Response Time,P082,ms,,,,,Lower_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Grid Support,Dynamic,Active Power Response Time,P083,ms,≤ 100,,100,,Lower_Better,3,NO,DemoVolt PCS-A,DV-2500-L,30,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Dynamic,Active Power Response Time,P083,ms,≤ 100,,100,,Lower_Better,3,NO,GridCore PCS-B,GC-2500-A,50,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Dynamic,Active Power Response Time,P083,ms,≤ 100,,100,,Lower_Better,3,NO,PowerStack PCS-C,PS-2200-L,80,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Advanced,Black Start,P084,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Advanced,Black Start,P084,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Advanced,Black Start,P084,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,NO,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Advanced,Islanding Operation,P085,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Advanced,Islanding Operation,P085,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Advanced,Islanding Operation,P085,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Advanced,Synchronization Time,P086,s,,,,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Grid Support,Advanced,Synchronization Time,P086,s,,,,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Grid Support,Advanced,Synchronization Time,P086,s,,,,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Grid Support,Advanced,Virtual Synchronous Machine,P087,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Advanced,Virtual Synchronous Machine,P087,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Advanced,Virtual Synchronous Machine,P087,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,NO,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Advanced,Synthetic Inertia,P088,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Advanced,Synthetic Inertia,P088,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Grid Support,Advanced,Synthetic Inertia,P088,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Temp,Minimum Operating Temperature,P089,°C,≤ -20,,-20,,Lower_Better,2,NO,DemoVolt PCS-A,DV-2500-L,-30,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Temp,Minimum Operating Temperature,P089,°C,≤ -20,,-20,,Lower_Better,2,NO,GridCore PCS-B,GC-2500-A,-25,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Temp,Minimum Operating Temperature,P089,°C,≤ -20,,-20,,Lower_Better,2,NO,PowerStack PCS-C,PS-2200-L,-20,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Temp,Maximum Operating Temperature,P090,°C,≥ 60,60,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,60,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Temp,Maximum Operating Temperature,P090,°C,≥ 60,60,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,60,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Temp,Maximum Operating Temperature,P090,°C,≥ 60,60,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,55,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Temp,Full Rated Power Temperature,P091,°C,≥ 50,50,,55,Higher_Better,5,YES,DemoVolt PCS-A,DV-2500-L,55,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Temp,Full Rated Power Temperature,P091,°C,≥ 50,50,,55,Higher_Better,5,YES,GridCore PCS-B,GC-2500-A,50,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Temp,Full Rated Power Temperature,P091,°C,≥ 50,50,,55,Higher_Better,5,YES,PowerStack PCS-C,PS-2200-L,45,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Temp,Derating Start Temperature,P092,°C,≥ 50,50,,,Higher_Better,4,NO,DemoVolt PCS-A,DV-2500-L,55,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Temp,Derating Start Temperature,P092,°C,≥ 50,50,,,Higher_Better,4,NO,GridCore PCS-B,GC-2500-A,50,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Temp,Derating Start Temperature,P092,°C,≥ 50,50,,,Higher_Better,4,NO,PowerStack PCS-C,PS-2200-L,45,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Temp,Maximum Temperature,P093,°C,,,,,Higher_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Thermal & Environmental,Temp,Maximum Temperature,P093,°C,,,,,Higher_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Thermal & Environmental,Temp,Maximum Temperature,P093,°C,,,,,Higher_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Thermal & Environmental,Temp,Temperature Derating,P094,%/°C,,,,,Lower_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Thermal & Environmental,Temp,Temperature Derating,P094,%/°C,,,,,Lower_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Thermal & Environmental,Temp,Temperature Derating,P094,%/°C,,,,,Lower_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Thermal & Environmental,Storage,Minimum Storage Temperature,P095,°C,,,,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Thermal & Environmental,Storage,Minimum Storage Temperature,P095,°C,,,,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Thermal & Environmental,Storage,Minimum Storage Temperature,P095,°C,,,,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Thermal & Environmental,Storage,Maximum Storage Temperature,P096,°C,,,,,Higher_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Thermal & Environmental,Storage,Maximum Storage Temperature,P096,°C,,,,,Higher_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Thermal & Environmental,Storage,Maximum Storage Temperature,P096,°C,,,,,Higher_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Thermal & Environmental,Env,Relative Humidity,P097,%,0-100,,,,Range,2,NO,DemoVolt PCS-A,DV-2500-L,0-100,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Env,Relative Humidity,P097,%,0-100,,,,Range,2,NO,GridCore PCS-B,GC-2500-A,0-100,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Env,Relative Humidity,P097,%,0-100,,,,Range,2,NO,PowerStack PCS-C,PS-2200-L,May-95,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Env,Maximum Altitude,P098,m,≥ 3000,3000,,,Higher_Better,3,NO,DemoVolt PCS-A,DV-2500-L,4000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Env,Maximum Altitude,P098,m,≥ 3000,3000,,,Higher_Better,3,NO,GridCore PCS-B,GC-2500-A,4000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Env,Maximum Altitude,P098,m,≥ 3000,3000,,,Higher_Better,3,NO,PowerStack PCS-C,PS-2200-L,3000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Env,Altitude Derating,P099,,,,,,Text,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Thermal & Environmental,Env,Altitude Derating,P099,,,,,,Text,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Thermal & Environmental,Env,Altitude Derating,P099,,,,,,Text,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Thermal & Environmental,Cooling,Cooling Type,P100,,,,,,Text,2,NO,DemoVolt PCS-A,DV-2500-L,Liquid,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Cooling,Cooling Type,P100,,,,,,Text,2,NO,GridCore PCS-B,GC-2500-A,Forced air,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Cooling,Cooling Type,P100,,,,,,Text,2,NO,PowerStack PCS-C,PS-2200-L,Liquid,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Cooling,Cooling Power Consumption,P101,W,,,,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Thermal & Environmental,Cooling,Cooling Power Consumption,P101,W,,,,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Thermal & Environmental,Cooling,Cooling Power Consumption,P101,W,,,,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Thermal & Environmental,Env,Noise,P102,dB,≤ 80,,80,,Lower_Better,2,NO,DemoVolt PCS-A,DV-2500-L,72,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Env,Noise,P102,dB,≤ 80,,80,,Lower_Better,2,NO,GridCore PCS-B,GC-2500-A,75,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Env,Noise,P102,dB,≤ 80,,80,,Lower_Better,2,NO,PowerStack PCS-C,PS-2200-L,80,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Enclosure,IP Rating (Env),P103,IP,≥ 54,54,,,Higher_Better,3,NO,DemoVolt PCS-A,DV-2500-L,65,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Enclosure,IP Rating (Env),P103,IP,≥ 54,54,,,Higher_Better,3,NO,GridCore PCS-B,GC-2500-A,66,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Enclosure,IP Rating (Env),P103,IP,≥ 54,54,,,Higher_Better,3,NO,PowerStack PCS-C,PS-2200-L,54,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Env,Corrosion Protection,P104,,C4/C5,,,,Text,3,NO,DemoVolt PCS-A,DV-2500-L,C5,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Env,Corrosion Protection,P104,,C4/C5,,,,Text,3,NO,GridCore PCS-B,GC-2500-A,C4,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Env,Corrosion Protection,P104,,C4/C5,,,,Text,3,NO,PowerStack PCS-C,PS-2200-L,C4,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Env,Salt Mist Resistance,P105,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Env,Salt Mist Resistance,P105,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Thermal & Environmental,Env,Salt Mist Resistance,P105,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Protection & Safety,Protection,AC Overvoltage Protection,P106,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,AC Overvoltage Protection,P106,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,AC Overvoltage Protection,P106,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,AC Undervoltage Protection,P107,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,AC Undervoltage Protection,P107,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,AC Undervoltage Protection,P107,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,DC Overvoltage Protection,P108,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,DC Overvoltage Protection,P108,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,DC Overvoltage Protection,P108,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,DC Undervoltage Protection,P109,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,DC Undervoltage Protection,P109,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,DC Undervoltage Protection,P109,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Overcurrent Protection,P110,,YES,,,,Boolean,4,YES,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Overcurrent Protection,P110,,YES,,,,Boolean,4,YES,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Overcurrent Protection,P110,,YES,,,,Boolean,4,YES,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Short Circuit Protection,P111,,YES,,,,Boolean,4,YES,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Short Circuit Protection,P111,,YES,,,,Boolean,4,YES,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Short Circuit Protection,P111,,YES,,,,Boolean,4,YES,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Overtemperature Protection,P112,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Overtemperature Protection,P112,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Overtemperature Protection,P112,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Insulation Monitoring,P113,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Insulation Monitoring,P113,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Insulation Monitoring,P113,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Ground Fault Protection,P114,,YES,,,,Boolean,4,YES,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Ground Fault Protection,P114,,YES,,,,Boolean,4,YES,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Ground Fault Protection,P114,,YES,,,,Boolean,4,YES,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Anti-Islanding,P115,,YES,,,,Boolean,4,YES,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Anti-Islanding,P115,,YES,,,,Boolean,4,YES,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Anti-Islanding,P115,,YES,,,,Boolean,4,YES,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,SPD,P116,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,SPD,P116,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,SPD,P116,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Emergency Stop,P117,,YES,,,,Boolean,4,YES,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Emergency Stop,P117,,YES,,,,Boolean,4,YES,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Emergency Stop,P117,,YES,,,,Boolean,4,YES,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Fire System Interlock,P118,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Fire System Interlock,P118,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Fire System Interlock,P118,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,BMS Interlock,P119,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,BMS Interlock,P119,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,BMS Interlock,P119,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,EMS Interlock,P120,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,EMS Interlock,P120,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,EMS Interlock,P120,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,HVAC Interlock,P121,,YES,,,,Boolean,1,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,HVAC Interlock,P121,,YES,,,,Boolean,1,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,HVAC Interlock,P121,,YES,,,,Boolean,1,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Arc Fault Detection,P122,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,Arc Fault Detection,P122,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Protection & Safety,Protection,Arc Fault Detection,P122,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,NO,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Protection & Safety,Protection,SPD Type,P123,,Type I+II,,,,Text,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Protection & Safety,Protection,SPD Type,P123,,Type I+II,,,,Text,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Protection & Safety,Protection,SPD Type,P123,,Type I+II,,,,Text,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Communication & Control,Comms,CAN,P124,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,CAN,P124,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,CAN,P124,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Modbus TCP,P125,,YES,,,,Boolean,4,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Modbus TCP,P125,,YES,,,,Boolean,4,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Modbus TCP,P125,,YES,,,,Boolean,4,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Modbus RTU,P126,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Modbus RTU,P126,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Modbus RTU,P126,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,IEC 61850,P127,,YES,,,,Boolean,4,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,IEC 61850,P127,,YES,,,,Boolean,4,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,IEC 61850,P127,,YES,,,,Boolean,4,NO,PowerStack PCS-C,PS-2200-L,NO,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,IEC 60870-5-104,P128,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,IEC 60870-5-104,P128,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,IEC 60870-5-104,P128,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,NO,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Ethernet,P129,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Ethernet,P129,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Ethernet,P129,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Fiber Optic,P130,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Fiber Optic,P130,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Fiber Optic,P130,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,SCADA Interface,P131,,YES,,,,Boolean,4,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,SCADA Interface,P131,,YES,,,,Boolean,4,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,SCADA Interface,P131,,YES,,,,Boolean,4,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,EMS Interface,P132,,YES,,,,Boolean,4,YES,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,EMS Interface,P132,,YES,,,,Boolean,4,YES,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,EMS Interface,P132,,YES,,,,Boolean,4,YES,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,BMS Interface,P133,,YES,,,,Boolean,5,YES,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,BMS Interface,P133,,YES,,,,Boolean,5,YES,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,BMS Interface,P133,,YES,,,,Boolean,5,YES,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Remote Monitoring,P134,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Remote Monitoring,P134,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Remote Monitoring,P134,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Remote Firmware Update,P135,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Remote Firmware Update,P135,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Remote Firmware Update,P135,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,NO,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,NTP,P136,,YES,,,,Boolean,1,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,NTP,P136,,YES,,,,Boolean,1,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,NTP,P136,,YES,,,,Boolean,1,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,PTP,P137,,YES,,,,Boolean,1,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,PTP,P137,,YES,,,,Boolean,1,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,PTP,P137,,YES,,,,Boolean,1,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,GPS Time Synchronization,P138,,YES,,,,Boolean,1,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,GPS Time Synchronization,P138,,YES,,,,Boolean,1,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,GPS Time Synchronization,P138,,YES,,,,Boolean,1,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Cybersecurity Features,P139,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Cybersecurity Features,P139,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Communication & Control,Comms,Cybersecurity Features,P139,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Communication & Control,Comms,CAN Protocol,P140,,,,,,Text,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Communication & Control,Comms,CAN Protocol,P140,,,,,,Text,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Communication & Control,Comms,CAN Protocol,P140,,,,,,Text,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Mechanical,Dim,Length,P141,mm,,,,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Mechanical,Dim,Length,P141,mm,,,,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Mechanical,Dim,Length,P141,mm,,,,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Mechanical,Dim,Width,P142,mm,,,,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Mechanical,Dim,Width,P142,mm,,,,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Mechanical,Dim,Width,P142,mm,,,,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Mechanical,Dim,Height,P143,mm,,,,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Mechanical,Dim,Height,P143,mm,,,,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Mechanical,Dim,Height,P143,mm,,,,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Mechanical,Dim,Weight,P144,kg,,,,,Lower_Better,2,NO,DemoVolt PCS-A,DV-2500-L,3200,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Dim,Weight,P144,kg,,,,,Lower_Better,2,NO,GridCore PCS-B,GC-2500-A,3500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Dim,Weight,P144,kg,,,,,Lower_Better,2,NO,PowerStack PCS-C,PS-2200-L,2900,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Dim,Footprint,P145,m²,,,,,Lower_Better,3,NO,DemoVolt PCS-A,DV-2500-L,4.2,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Dim,Footprint,P145,m²,,,,,Lower_Better,3,NO,GridCore PCS-B,GC-2500-A,4.8,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Dim,Footprint,P145,m²,,,,,Lower_Better,3,NO,PowerStack PCS-C,PS-2200-L,3.9,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Access,Mounting Method,P146,,,,,,Text,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Mechanical,Access,Mounting Method,P146,,,,,,Text,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Mechanical,Access,Mounting Method,P146,,,,,,Text,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Mechanical,Access,DC Cable Entry,P147,,,,,,Text,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Mechanical,Access,DC Cable Entry,P147,,,,,,Text,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Mechanical,Access,DC Cable Entry,P147,,,,,,Text,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Mechanical,Access,AC Cable Entry,P148,,,,,,Text,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Mechanical,Access,AC Cable Entry,P148,,,,,,Text,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Mechanical,Access,AC Cable Entry,P148,,,,,,Text,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Mechanical,Access,Top Cable Entry,P149,,,,,,Boolean,1,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Access,Top Cable Entry,P149,,,,,,Boolean,1,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Access,Top Cable Entry,P149,,,,,,Boolean,1,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Access,Bottom Cable Entry,P150,,,,,,Boolean,1,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Access,Bottom Cable Entry,P150,,,,,,Boolean,1,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Access,Bottom Cable Entry,P150,,,,,,Boolean,1,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Access,Front Access,P151,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Access,Front Access,P151,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Access,Front Access,P151,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Access,Rear Access,P152,,,,,,Boolean,1,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Access,Rear Access,P152,,,,,,Boolean,1,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Access,Rear Access,P152,,,,,,Boolean,1,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Access,Side Access,P153,,,,,,Boolean,1,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Access,Side Access,P153,,,,,,Boolean,1,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Access,Side Access,P153,,,,,,Boolean,1,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Access,Maintenance Clearance,P154,mm,,,,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Mechanical,Access,Maintenance Clearance,P154,mm,,,,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Mechanical,Access,Maintenance Clearance,P154,mm,,,,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Mechanical,Calc,Footprint per MW,P155,m²/MW,,,,,Lower_Better,3,NO,DemoVolt PCS-A,DV-2500-L,1.68,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Calc,Footprint per MW,P155,m²/MW,,,,,Lower_Better,3,NO,GridCore PCS-B,GC-2500-A,1.92,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Calc,Footprint per MW,P155,m²/MW,,,,,Lower_Better,3,NO,PowerStack PCS-C,PS-2200-L,1.77,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Calc,Weight per MW,P156,kg/MW,,,,,Lower_Better,2,NO,DemoVolt PCS-A,DV-2500-L,1280,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Calc,Weight per MW,P156,kg/MW,,,,,Lower_Better,2,NO,GridCore PCS-B,GC-2500-A,1400,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Mechanical,Calc,Weight per MW,P156,kg/MW,,,,,Lower_Better,2,NO,PowerStack PCS-C,PS-2200-L,1318,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Life,Design Life,P157,years,≥ 20,20,,,Higher_Better,3,NO,DemoVolt PCS-A,DV-2500-L,25,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Life,Design Life,P157,years,≥ 20,20,,,Higher_Better,3,NO,GridCore PCS-B,GC-2500-A,20,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Life,Design Life,P157,years,≥ 20,20,,,Higher_Better,3,NO,PowerStack PCS-C,PS-2200-L,20,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Life,Expected Service Life,P158,years,≥ 20,20,,,Higher_Better,3,NO,DemoVolt PCS-A,DV-2500-L,25,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Life,Expected Service Life,P158,years,≥ 20,20,,,Higher_Better,3,NO,GridCore PCS-B,GC-2500-A,20,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Life,Expected Service Life,P158,years,≥ 20,20,,,Higher_Better,3,NO,PowerStack PCS-C,PS-2200-L,20,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Life,MTBF,P159,hours,,,,,Higher_Better,3,NO,DemoVolt PCS-A,DV-2500-L,200000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Life,MTBF,P159,hours,,,,,Higher_Better,3,NO,GridCore PCS-B,GC-2500-A,150000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Life,MTBF,P159,hours,,,,,Higher_Better,3,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Reliability & Lifecycle,Warranty,Warranty,P160,years,≥ 5,5,,5,Higher_Better,4,NO,DemoVolt PCS-A,DV-2500-L,5,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Warranty,Warranty,P160,years,≥ 5,5,,5,Higher_Better,4,NO,GridCore PCS-B,GC-2500-A,5,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Warranty,Warranty,P160,years,≥ 5,5,,5,Higher_Better,4,NO,PowerStack PCS-C,PS-2200-L,5,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Maint,Preventive Maintenance Interval,P161,months,,,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Reliability & Lifecycle,Maint,Preventive Maintenance Interval,P161,months,,,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Reliability & Lifecycle,Maint,Preventive Maintenance Interval,P161,months,,,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Reliability & Lifecycle,Maint,Fan Life,P162,hours,,,,,Higher_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Reliability & Lifecycle,Maint,Fan Life,P162,hours,,,,,Higher_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Reliability & Lifecycle,Maint,Fan Life,P162,hours,,,,,Higher_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Reliability & Lifecycle,Maint,Capacitor Life,P163,hours,,,,,Higher_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Reliability & Lifecycle,Maint,Capacitor Life,P163,hours,,,,,Higher_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Reliability & Lifecycle,Maint,Capacitor Life,P163,hours,,,,,Higher_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Reliability & Lifecycle,Maint,Cooling System Life,P164,years,,,,,Higher_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Reliability & Lifecycle,Maint,Cooling System Life,P164,years,,,,,Higher_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Reliability & Lifecycle,Maint,Cooling System Life,P164,years,,,,,Higher_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Reliability & Lifecycle,Maint,Filter Replacement Interval,P165,months,,,,,Higher_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Reliability & Lifecycle,Maint,Filter Replacement Interval,P165,months,,,,,Higher_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Reliability & Lifecycle,Maint,Filter Replacement Interval,P165,months,,,,,Higher_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Reliability & Lifecycle,Maint,Major Component Replacement,P166,years,,,,,Higher_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Reliability & Lifecycle,Maint,Major Component Replacement,P166,years,,,,,Higher_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Reliability & Lifecycle,Maint,Major Component Replacement,P166,years,,,,,Higher_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Reliability & Lifecycle,Service,Spare Parts Availability,P167,,,,,,Text,3,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Reliability & Lifecycle,Service,Spare Parts Availability,P167,,,,,,Text,3,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Reliability & Lifecycle,Service,Spare Parts Availability,P167,,,,,,Text,3,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Reliability & Lifecycle,Service,Local Service Support,P168,,YES,,,,Boolean,4,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Service,Local Service Support,P168,,YES,,,,Boolean,4,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Service,Local Service Support,P168,,YES,,,,Boolean,4,NO,PowerStack PCS-C,PS-2200-L,NO,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Service,Local Service Engineer,P169,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Service,Local Service Engineer,P169,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Service,Local Service Engineer,P169,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Service,India Stock Availability,P170,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Service,India Stock Availability,P170,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,NO,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Reliability & Lifecycle,Service,India Stock Availability,P170,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,NO,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEC 62477-1,P171,,YES,,,,Boolean,5,YES,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEC 62477-1,P171,,YES,,,,Boolean,5,YES,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEC 62477-1,P171,,YES,,,,Boolean,5,YES,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEC 61000 Series,P172,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEC 61000 Series,P172,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEC 61000 Series,P172,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEC 62109,P173,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEC 62109,P173,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEC 62109,P173,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEC 62933,P174,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEC 62933,P174,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEC 62933,P174,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,UL 1741,P175,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,UL 1741,P175,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,UL 1741,P175,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,UL 1741 SA,P176,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,UL 1741 SA,P176,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,UL 1741 SA,P176,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,UL 1741 SB,P177,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,UL 1741 SB,P177,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,UL 1741 SB,P177,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,UL 9540,P178,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,UL 9540,P178,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,UL 9540,P178,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEEE 1547,P179,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEEE 1547,P179,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEEE 1547,P179,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,NO,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEEE 519,P180,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEEE 519,P180,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,IEEE 519,P180,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,CE,P181,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,CE,P181,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,CE,P181,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,EMC,P182,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,EMC,P182,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,EMC,P182,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,Grid Code Compliance,P183,,YES,,,,Boolean,5,YES,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,Grid Code Compliance,P183,,YES,,,,Boolean,5,YES,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,Grid Code Compliance,P183,,YES,,,,Boolean,5,YES,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,BIS,P184,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,BIS,P184,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Certification & Compliance,Cert,BIS,P184,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,NO,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Certification & Compliance,Cert,Applicable Indian Standards,P185,,CEA 2022,,,,Text,3,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Certification & Compliance,Cert,Applicable Indian Standards,P185,,CEA 2022,,,,Text,3,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Certification & Compliance,Cert,Applicable Indian Standards,P185,,CEA 2022,,,,Text,3,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Certification & Compliance,Cert,Certificate Number,P186,,,,,,Text,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Certification & Compliance,Cert,Certificate Number,P186,,,,,,Text,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Certification & Compliance,Cert,Certificate Number,P186,,,,,,Text,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Certification & Compliance,Cert,Certificate Scope,P187,,,,,,Text,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Certification & Compliance,Cert,Certificate Scope,P187,,,,,,Text,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Certification & Compliance,Cert,Certificate Scope,P187,,,,,,Text,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Certification & Compliance,Cert,Certificate Expiry Date,P188,,,,,,Text,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Certification & Compliance,Cert,Certificate Expiry Date,P188,,,,,,Text,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Certification & Compliance,Cert,Certificate Expiry Date,P188,,,,,,Text,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+BESS Integration,BESS,BMS Compatibility,P189,,YES,,,,Boolean,5,YES,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,BMS Compatibility,P189,,YES,,,,Boolean,5,YES,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,BMS Compatibility,P189,,YES,,,,Boolean,5,YES,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,EMS Compatibility,P190,,YES,,,,Boolean,5,YES,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,EMS Compatibility,P190,,YES,,,,Boolean,5,YES,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,EMS Compatibility,P190,,YES,,,,Boolean,5,YES,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Battery Voltage Compatibility,P191,,,,,,Text,4,YES,DemoVolt PCS-A,DV-2500-L,1000-1500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Battery Voltage Compatibility,P191,,,,,,Text,4,YES,GridCore PCS-B,GC-2500-A,1000-1500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Battery Voltage Compatibility,P191,,,,,,Text,4,YES,PowerStack PCS-C,PS-2200-L,1100-1500,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Battery Current Compatibility,P192,,,,,,Text,3,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+BESS Integration,BESS,Battery Current Compatibility,P192,,,,,,Text,3,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+BESS Integration,BESS,Battery Current Compatibility,P192,,,,,,Text,3,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+BESS Integration,BESS,SOC Communication,P193,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,SOC Communication,P193,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,SOC Communication,P193,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,SOH Communication,P194,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,SOH Communication,P194,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,SOH Communication,P194,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Charge Command,P195,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Charge Command,P195,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Charge Command,P195,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Discharge Command,P196,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Discharge Command,P196,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Discharge Command,P196,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Active Power Command,P197,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Active Power Command,P197,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Active Power Command,P197,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Reactive Power Command,P198,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Reactive Power Command,P198,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Reactive Power Command,P198,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Fast Power Response,P199,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Fast Power Response,P199,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Fast Power Response,P199,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Pre-charge Sequence,P200,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Pre-charge Sequence,P200,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Pre-charge Sequence,P200,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Contactor Control,P201,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Contactor Control,P201,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Contactor Control,P201,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,E-stop Integration,P202,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,E-stop Integration,P202,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,E-stop Integration,P202,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Fire Alarm Integration,P203,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Fire Alarm Integration,P203,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Fire Alarm Integration,P203,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,NO,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,HVAC Interlock,P204,,YES,,,,Boolean,1,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,HVAC Interlock,P204,,YES,,,,Boolean,1,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,HVAC Interlock,P204,,YES,,,,Boolean,1,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Rack Communication,P205,,YES,,,,Boolean,2,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Rack Communication,P205,,YES,,,,Boolean,2,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,Rack Communication,P205,,YES,,,,Boolean,2,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,DC Bus Compatibility,P206,,YES,,,,Boolean,3,NO,DemoVolt PCS-A,DV-2500-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,DC Bus Compatibility,P206,,YES,,,,Boolean,3,NO,GridCore PCS-B,GC-2500-A,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+BESS Integration,BESS,DC Bus Compatibility,P206,,YES,,,,Boolean,3,NO,PowerStack PCS-C,PS-2200-L,YES,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Price,PCS Price,P207,₹,,,,,Lower_Better,3,NO,DemoVolt PCS-A,DV-2500-L,9500000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Price,PCS Price,P207,₹,,,,,Lower_Better,3,NO,GridCore PCS-B,GC-2500-A,9000000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Price,PCS Price,P207,₹,,,,,Lower_Better,3,NO,PowerStack PCS-C,PS-2200-L,8200000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Price,Price Currency,P208,,,,,,Text,1,NO,DemoVolt PCS-A,DV-2500-L,INR,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Price,Price Currency,P208,,,,,,Text,1,NO,GridCore PCS-B,GC-2500-A,INR,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Price,Price Currency,P208,,,,,,Text,1,NO,PowerStack PCS-C,PS-2200-L,INR,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Price,Price per kW,P209,₹/kW,,,,,Lower_Better,4,NO,DemoVolt PCS-A,DV-2500-L,3800,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Price,Price per kW,P209,₹/kW,,,,,Lower_Better,4,NO,GridCore PCS-B,GC-2500-A,3600,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Price,Price per kW,P209,₹/kW,,,,,Lower_Better,4,NO,PowerStack PCS-C,PS-2200-L,3727,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Price,Price per MW,P210,₹/MW,,,,,Lower_Better,3,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Commercial,Price,Price per MW,P210,₹/MW,,,,,Lower_Better,3,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Commercial,Price,Price per MW,P210,₹/MW,,,,,Lower_Better,3,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Commercial,Cost,Installation Cost,P211,₹,,,,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Commercial,Cost,Installation Cost,P211,₹,,,,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Commercial,Cost,Installation Cost,P211,₹,,,,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Commercial,Cost,Commissioning Cost,P212,₹,,,,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Commercial,Cost,Commissioning Cost,P212,₹,,,,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Commercial,Cost,Commissioning Cost,P212,₹,,,,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Commercial,Cost,AMC Cost,P213,₹,,,,,Lower_Better,2,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Commercial,Cost,AMC Cost,P213,₹,,,,,Lower_Better,2,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Commercial,Cost,AMC Cost,P213,₹,,,,,Lower_Better,2,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Commercial,Warranty,Warranty Years,P214,years,≥ 5,5,,,Higher_Better,2,NO,DemoVolt PCS-A,DV-2500-L,5,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Warranty,Warranty Years,P214,years,≥ 5,5,,,Higher_Better,2,NO,GridCore PCS-B,GC-2500-A,5,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Warranty,Warranty Years,P214,years,≥ 5,5,,,Higher_Better,2,NO,PowerStack PCS-C,PS-2200-L,5,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Cost,Extended Warranty Cost,P215,₹,,,,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Commercial,Cost,Extended Warranty Cost,P215,₹,,,,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Commercial,Cost,Extended Warranty Cost,P215,₹,,,,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Commercial,Cost,Spare Parts Cost,P216,₹,,,,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Commercial,Cost,Spare Parts Cost,P216,₹,,,,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Commercial,Cost,Spare Parts Cost,P216,₹,,,,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Commercial,Cost,Transportation Cost,P217,₹,,,,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Commercial,Cost,Transportation Cost,P217,₹,,,,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Commercial,Cost,Transportation Cost,P217,₹,,,,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Commercial,Cost,Taxes/Duties,P218,₹,,,,,Lower_Better,1,NO,DemoVolt PCS-A,DV-2500-L,,,,,Data Pending
+Commercial,Cost,Taxes/Duties,P218,₹,,,,,Lower_Better,1,NO,GridCore PCS-B,GC-2500-A,,,,,Data Pending
+Commercial,Cost,Taxes/Duties,P218,₹,,,,,Lower_Better,1,NO,PowerStack PCS-C,PS-2200-L,,,,,Data Pending
+Commercial,Cost,Total Delivered Cost,P219,₹,,,,,Lower_Better,3,NO,DemoVolt PCS-A,DV-2500-L,10200000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Cost,Total Delivered Cost,P219,₹,,,,,Lower_Better,3,NO,GridCore PCS-B,GC-2500-A,9700000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Cost,Total Delivered Cost,P219,₹,,,,,Lower_Better,3,NO,PowerStack PCS-C,PS-2200-L,8900000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Calc,Total Cost per MW,P220,₹/MW,,,,,Lower_Better,4,NO,DemoVolt PCS-A,DV-2500-L,4080000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Calc,Total Cost per MW,P220,₹/MW,,,,,Lower_Better,4,NO,GridCore PCS-B,GC-2500-A,3880000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
+Commercial,Calc,Total Cost per MW,P220,₹/MW,,,,,Lower_Better,4,NO,PowerStack PCS-C,PS-2200-L,4045000,,Sample/Demo,8/1/2026,DEMO DATA — not real specs
