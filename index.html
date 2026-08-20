@@ -184,7 +184,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 
 // ===== DATA LAYER (CSV-driven) =====
 const STATIC = {"vendors": ["Hopewind", "Hoymiles", "Sineng", "FIMER", "Inovance"], "models": {"Hopewind": "Central PCS (2.5 MW class)", "Hoymiles": "HPCS2500-E-S", "Sineng": "EH-1250-HC-UD / EH-1725-HB-UD", "FIMER": "PVS980-58BC (2500 kVA)", "Inovance": "IES920-07-2500-C-D-EU"}, "weights": {"eff": 20, "temp": 15, "gfm": 15, "ovl": 10, "rel": 10, "grid": 10, "cool": 8, "warr": 7, "comm": 5}};
-
+const WLABEL={eff:"Efficiency",temp:"High-temp full power",gfm:"Grid-forming / inertia",ovl:"Overload capability",rel:"Reliability (MTBF/MTTR)",grid:"Grid-code compliance",cool:"Cooling & environment",warr:"Warranty & service",comm:"Communication"};
 
 function parseCSV(text){
   const rows=[]; let i=0,f='',row=[],q=false;
