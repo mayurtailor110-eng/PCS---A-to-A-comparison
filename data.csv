@@ -1,0 +1,101 @@
+section,no,parameter,requirement,Hopewind,Hoymiles,Sineng,FIMER,Inovance
+Performance Envelope,1,Peak efficiency,≥ 99.0 %,0.985,Complied,0.99,98.8% max,99% max
+Performance Envelope,2,Euro / CEC efficiency,≥ 98.5 %,NA,Complied,0.98,"98.5% (CEC), 98.6% Euro-eta",Not specified (99% max eff.)
+Performance Envelope,3,Power factor range,0.9 lead – 0.89 lag,+-1,-1 to +1,-1 to +1,Four quadrant,−1 (lead) to +1 (lag)
+Performance Envelope,4,Response time (P/Q),< 50 ms,<30ms,Complied,complied,Not specified in datasheet,Full-load charge/discharge switchover < 30 ms
+Performance Envelope,5,Grid-forming step response,< 5 ms,"PCS side <200ms, whole plant level is N/A",Complied,complied,Not specified in datasheet,Black start / GFM supported (step time not specified)
+Performance Envelope,6,Design / service life,~ 15 - 20 years,20 years,Complied,25 years,At least 25 years,Not specified in datasheet
+Product Range,7,String PCS,50 – 250 kW,NA,NA,NA,NA,NA (IES600 string: 400 kW available)
+Product Range,8,Modular PCS,250 kW – 1.5 MW,NA,,NA,NA,NA
+Product Range,9,Central PCS,1.5 – 5 MW,2.5MW @50 deg,2.5MVA,"1 - EH-1250-HC-UD
+2 - EH-1725-HB-UD",869–5000 kVA range (2028–2210 kVA @50°C for 2500-L),2500 kW @55°C (2750 kW max @45°C)
+Product Range,10,Redundancy,N+1 at utility scale,"N+1 can support, but it's necessary to buy an additional PCS as a backup",Not available,Yes,Not specified in datasheet,Parallel connection of multiple systems supported
+AC Interface,11,Nominal AC voltage,400 V / 690 V,690 V,690V,607~759V,480 / 520 / 560 / 600 / 630 / 660 / 690 V,690 V
+AC Interface,12,Frequency,50 / 60 Hz ± configurable,50Hz,Complied,50Hz/ 45~55Hz,50/60 Hz (±10 Hz),50 / 60 Hz
+AC Interface,13,THD (current),< 3 % at rated power,<3%,Complied,< 3 % at rated power,< 3 %,< 3 % (rated power)
+AC Interface,14,DC injection,< 0.5 % of rated current,0.5% of rated current,Complied,< 0.5 % of rated current,Not specified in datasheet,Not specified in datasheet
+AC Interface,15,Overload capability,110 % continuous; 120 % for 60 s,"110% long term,120 for 10 sec,150% for 1sec",Complied,110 % for 10 mins ; 120 % for 2 mins,Not specified in datasheet,Not specified in datasheet
+DC Interface,16,DC voltage window,600 – 1500 V,1000-1500 V DC,1000-1500,1000 - 1500 Vdc,680–1500 V (Umax 1500 V),1000–1500 V (max 1500 V)
+DC Interface,17,Insulation monitoring,Continuous,NA,Complied,complied,Not specified in datasheet,Not specified in datasheet
+DC Interface,18,DC precharge / softstart,Standard,Standard,Complied,complied,Not specified in datasheet,Not specified in datasheet
+DC Interface,19,Reverse-polarity protection,Mandatory,Complied,Complied,complied,Yes (DC reverse polarity),DC surge protection device (topology)
+Mechanical,20,Ingress protection,"IP54, IP65 optional",IP 66,IP65,IP65 complied,IP65 electronics / IP55 rest; Type 3R,IP65
+Mechanical,21,Corrosion class,C4 standard; C5-M optional,C5 standard for India,Complied,C4 standard & can be discussed,Not specified in datasheet,Not specified in datasheet
+Mechanical,22,Seismic qualification,IEEE 693 or equivalent,Certification N/A,Please share Seismeic requirement,Provision for bolting,Not specified in datasheet,Not specified in datasheet
+Thermal,23,Ambient (full power target),≥ 50 °C without derating,2.5MW @50 deg,Complied,"EH-1250-HC-UD - 55deg no derating 
+EH-1725-HB-UD - 45deg no derating",Full power to ~50°C (power limiting after 50°C),Full power to 55°C (derating above +55°C)
+Thermal,24,Max ambient (operational),− 20 °C to + 60 °C,-40 to +60 deg,Complied,-40~60degC,−20 … +60 °C (−40°C option),−40°C to +60°C
+Thermal,25,Cooling method,Forced air / liquid per class,Liquid cooled,Liquid cooling,advanced 2 phase + forced air cooling,"Patented self-contained thermosyphon (liquid-cooled ratings, air-cooling simplicity)",Air-Liquid cooling
+Thermal,26,Filter / maintenance,"Tool-free, long interval",N/A for air filter,As per site condition,complied,"Low maintenance, no fillable liquids/pumps/valves",Not specified in datasheet
+Thermal,27,Cooling redundancy,Fan N+1 at utility scale,"N/A, only possible for extra spare part",No redundancy,Yes,Not specified in datasheet,Not specified in datasheet
+Thermal,28,Altitude,Up to 3000 m with derating,4000 mtr,up to 5000 mts,5000m （>3000 m derating）,"4000 m (2000 m std, 4000 m option)",3000 m (derating above 2000 m)
+Environmental,29,Ambient temp,− 20 °C to + 60 °C,-40 to +60 deg,Complied,-40~60degC,−20 … +60 °C,−40°C to +60°C
+Environmental,30,Humidity,0 – 100 % condensing (protected),4-100%,Complied,0-100%,4 … 100 %,0–100 % (non-condensing)
+Environmental,31,Pollution / dust,High-dust capable,Complied,Complied,30PPI dustproof cotton,Sand test certified / dust proof outdoor enclosure,"Top-rear exhaust, enclosed air-water cooling (dust adaptable)"
+Battery Compatibility,32,Chemistry,LFP primary & Na-ion capable,"LFP,Li",Complied,complied,Battery DC input (chemistry-agnostic),CV/CC/CP charge modes (chemistry not specified)
+Battery Compatibility,33,Voltage window,600 – 1500 V DC configurable,1000-1500  V DC,1000-1500,1000 - 1500 Vdc,680–1500 V DC,1000–1500 V DC
+Battery Compatibility,34,BMS interface,CAN / Modbus / open protocol,CAN / Modbus,CAN/Modbus,CAN,Not specified in datasheet (via I/O),CAN / RS485 (via DI/DO)
+Battery Compatibility,35,Charge control,"CC-CV, CP",CC - CV - CP,EMS should send command to PCS,complied,Controlled by external control system,Constant voltage / constant current / constant power
+Communication,36,Modbus TCP/RTU,Mandatory,Compllied,Complied,complied,Modbus,Modbus-RTU (std); Modbus-TCP (optional)
+Communication,37,IEC 61850,Mandatory (utility),Complied,Complied,Complied as per IEC 104 and TCP -IP,Not specified in datasheet,IEC 61850 (optional)
+Communication,38,DNP3,Recommended,NA,NA,"2. PCS to EMS/SCADA/any master:
+Modbus TCP/IP （RJ 45 port, CAT 6 cable）
+Modbus RTU （RS485 port, twisted pair cable)",Not specified in datasheet,Not specified in datasheet
+EMS / SCADA,39,Control interface,"P/Q setpoints, ramp, mode change remotely",Complied through EMS,Complied,"2. PCS to EMS/SCADA/any master:
+Modbus TCP/IP （RJ 45 port, CAT 6 cable）
+Modbus RTU （RS485 port, twisted pair cable)",Active/reactive power controlled by external control system,RS485/CAN/Ethernet/DI/DO control interface
+EMS / SCADA,40,Applications,"Peak shaving, arbitrage, freq. regulation, RE smoothing",Complied,Complied,can be discussed during detailed engineering,"Peak shaving, grid support, RE smoothing (BESS applications)","Peak-shaving, frequency modulation, RE smoothing, black start"
+EMS / SCADA,41,SCADA protocol,IEC 61850 / DNP3,DNP NA,IEC61850,"2. PCS to EMS/SCADA/any master:
+Modbus TCP/IP （RJ 45 port, CAT 6 cable）
+Modbus RTU （RS485 port, twisted pair cable)",Not specified (Modbus/Profinet/Ethernet IP available),IEC 61850 (optional)
+EMS / SCADA,42,SCADA redundancy,Dual comms path,Complied,,Kindly Explain,Not specified in datasheet,Not specified in datasheet
+Grid-Forming,43,Voltage-source behaviour,Mandatory,Complied,Complied,complied,"Grid support functions (reactive power, FRT)",GFL/GFM/VSG voltage-source behaviour
+Grid-Forming,44,Virtual inertia,Configurable H,Available for nov-2026,Complied,complied,Not specified in datasheet,VSG (virtual synchronous generator) supported
+Grid-Forming,45,Black-start,Mandatory,Complied,Complied,complied,Not specified in datasheet,Black start function
+Grid-Forming,46,Islanding / microgrid,Seamless,Complied,Seamless not available while switcing mode between two modes,complied,Not specified in datasheet,Off-grid V/f output supported
+Grid-Forming,47,Fault current contribution,"Defined, sustained",,Max 8000A,complied,Max AC short circuit current 66 kA (1 s RMS),Not specified in datasheet
+Grid-Following,48,Current-source control,Mandatory,Complied,Complied,complied,Yes,GFL supported
+Grid-Following,49,PLL robustness,Weak-grid capable (SCR ≥ 1.5),Complied,Complied,complied,Not specified in datasheet,Not specified in datasheet
+Grid-Following,50,LVRT / HVRT,Full ride-through,Complied,Complied as per CEA,complied,LVRT & HVRT,LVRT/HVRT (per compliance standards)
+Grid-Following,51,Frequency response,P(f) droop configurable,Complied,Complied,complied,FqRT / power reduction,"Off-grid V/f, droop supported"
+Grid-Following,52,Volt-VAr / Volt-Watt,Configurable curves,,Complied,complied,Reactive power compensation,Not specified in datasheet
+Grid-Code Functions,53,Fault ride-through,LVRT & HVRT curves,Complied,Complied as per CEA,complied,"LVRT, HVRT, FRT with current feed-in",LVRT/HVRT (per EN 50549 / G99 / CEA:2022)
+Grid-Code Functions,54,Reactive support,Q at zero P capability,Complied,Complied,complied,Reactive power at night with DC disconnected,Reactive power −1.05 to +1.05
+Grid-Code Functions,55,Frequency response,FFR / droop,Complied,Complied,complied,FqRT / droop,Frequency response / droop supported
+Grid-Code Functions,56,Ramp-rate control,Configurable,Complied,Complied,complied,Power reduction / active power limitation,Not specified in datasheet
+Grid Code,57,India,CEA / CERC connectivity regs,CEA,Complied as per CEA,complied as per Latest CEA guidelines,IEC & CEA (India),CEA:2022 compliant
+International Standards,58,Inverter design/test,IEC 62109-1/-2,Complied,Not applicable for BESS PCS,complied as per IEC62477-1,Not specified (IEC 62477-1 declared),Not specified (EN 62477-1 declared)
+International Standards,59,Grid interconnection,"IEC 62477, IEEE 1547",coomplied,Complied as per IEC62477-1,complied as per IEC 62477,IEC 62477-1,EN 62477-1
+International Standards,60,BESS system,IEC 62933 series,Complied,Applicable for BESS not for PCS,NA,Not specified in datasheet,Not specified in datasheet
+International Standards,61,Environmental test,IEC 60068 series,Complie d,Complied,complied,"IEC 60068-2-1,-2,-14,-30",EN IEC 61000-6-2/4
+EMC,62,Emissions,IEC 61000-6-4 (industrial),Complied,Complied,complied,EN 50530 / IEC 61727 / IEC 62116 (EMC per CE),EN 55011 / EN IEC 61000-6-4
+EMC,63,Immunity,IEC 61000-6-2,Complied,Complied,complied,CE Declaration of Conformity,EN IEC 61000-6-2
+EMC,64,Harmonics / flicker,IEC 61000-3 series,"NA, Complied as per CEA",NA,complied as per Latest CEA guidelines,Not specified in datasheet,Not specified in datasheet
+EMC,65,Surge,IEC 61000-4 series,Type I+II complied,Complied,complied as per Latest CEA guidelines,Heavy duty (Type 1) surge protection option,DC & AC surge protection devices
+Safety,66,Electrical safety,IEC 62109 / IEC 61010,Complied as per IEC 62477-1,Complied as per IEC62477-1,complied as per IEC62477-1,IEC 62477-1,EN 62477-1
+Safety,67,Emergency stop,Hardwired E-stop,Complied,Complied,complied,Not specified in datasheet,Not specified in datasheet
+Protection Functions,68,Over/under voltage,Mandatory,Complied,Complied,complied,Grid monitoring / AC & DC over voltage: Yes,Voltage variation < 1% UN; protection standard
+Protection Functions,69,Over/under frequency,Mandatory,Complied,Complied,complied,Grid monitoring: Yes,Grid frequency 50/60 Hz protection
+Protection Functions,70,Overcurrent,Mandatory,Complied,Complied,complied,AC & DC short circuit and over current: Yes,AC/DC over-current protection (topology)
+Protection Functions,71,Anti-islanding,Mandatory,Complied,Complied,complied,Anti-islanding: Yes,Active & passive islanding detection
+Protection Functions,72,Insulation,Continuous monitoring,Complied,Complied,complied,Ground fault monitoring: Yes,Not specified in datasheet
+Protection Functions,73,Thermal / overload,Integrated,Complied,Complied,complied,AC & DC over voltage and temperature: Yes,Pressure relief & ventilation protection
+Control Functions,74,P/Q control,Four-quadrant,Complied,Complied,complied,Four quadrant P/Q,−1 to +1 four-quadrant
+Control Functions,75,Frequency-Watt,Droop & FFR,Complied,Complied,complied,Power reduction / FRT,Droop / off-grid V/f
+Control Functions,76,Ramp control,Up/down configurable,Complied,Complied,complied,Configurable (active power limitation),Not specified in datasheet
+Control Functions,77,Mode transition,Seamless GFL ↔ GFM,Complied,No seamless transission,complied,Not specified in datasheet,GFL/GFM/VSG transition supported
+Power Quality,78,Current THD,< 3 % at rated,Complied,Complied,<3% at rated power,< 3 %,< 3 % (rated power)
+Power Quality,79,Individual harmonic,IEEE 519 limits,Complied,Complied as per CEA,complied,Not specified in datasheet,Not specified in datasheet
+Power Quality,80,Flicker,Within IEC limits,Complied,Complied,complied as per Latest CEA guidelines,Not specified in datasheet,Not specified in datasheet
+Power Quality,81,Voltage unbalance,Managed,,No,complied as per Latest CEA guidelines,Not specified in datasheet,Voltage unbalance < 2% (≤4% short time)
+Reliability,82,MTBF,Documented,Will submitt,Will be shared up on receipt of order,kindly refer report for MTBF,Not specified in datasheet,Not specified in datasheet
+Reliability,83,MTTR,Documented,Will submitt,Will be shared up on receipt of order,NA,Not specified in datasheet,Not specified in datasheet
+Reliability,84,Component derating,Documented margins,Document Attached,"Cannot be shared, confidential",can be shared later,Not specified in datasheet,Not specified in datasheet
+Testing Regime,85,Type test,Documented,Attached,Complied,complied,Not specified in datasheet,Not specified in datasheet
+Testing Regime,86,Routine test,Documented,Attached,Complied,complied,Not specified in datasheet,Not specified in datasheet
+Testing Regime,87,FAT,Pre-shipment,Will submitt,Complied,complied,Not specified in datasheet,Not specified in datasheet
+Testing Regime,88,SAT,Post-install,Will submitt,SAT as per Hoymiles SAT procedure,complied,Not specified in datasheet,Not specified in datasheet
+Testing Regime,89,Grid-code test,Compliance,CEA certification attached,Reports will be shared,complied,Not specified in datasheet,Not specified in datasheet
+Warranty & Service,90,Standard warranty,≥ 5 years,Standard 5 years ectended up to 20 years,Will be discussed during commercials,standard 5 years of warranty,Warranty extensions available,Not specified in datasheet
+Software / Firmware / OTA,91,Control APIs,"Documented, versioned",For SCAD & EMS control we have the Modbus register map,Modbus mapping details of PCS will be shared,Kindly refer MODBUS communication document which will be shared later,Modbus/Profinet/Ethernet IP; remote monitoring,"Modbus-RTU/TCP, CAN 2.0B, IEC 61850, EtherCAT"
+Software / Firmware / OTA,92,OTA channel,authenticated,Yes,Not available,complied,Remote monitoring available,Not specified in datasheet

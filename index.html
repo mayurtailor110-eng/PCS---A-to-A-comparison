@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PCS Ranking — Apple-to-Apple Comparison</title>
+<style>
+:root{
+  --ink:#0d1f17; --paper:#f5f3ec; --panel:#fffdf7; --line:#d9d5c6;
+  --green:#1f7a3d; --green-d:#14532d; --amber:#c07a1e; --red:#b23b3b;
+  --t1:#1f7a3d; --t2:#c07a1e; --t3:#b23b3b; --flag:#8a6d3b;
+  --best:#eaf6ee; --best-line:#1f7a3d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace}
+.eyebrow{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:11px;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--flag)}
+
+/* header */
+header{border-bottom:2px solid var(--green-d);padding:26px 0 20px;background:var(--panel)}
+header .wrap{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
+h1{font-size:30px;margin:8px 0 0;font-weight:700;letter-spacing:-.01em;line-height:1.1;color:var(--green-d)}
+h1 span{color:var(--green)}
+.hstat{text-align:right;font-family:"IBM Plex Mono",Menlo,monospace;font-size:12px;color:#5c5a4e}
+.hstat b{display:block;font-size:22px;color:var(--green-d)}
+
+/* basis banner */
+.basis{background:var(--green-d);color:#eef4ea;font-family:"IBM Plex Mono",Menlo,monospace;
+  font-size:12.5px;letter-spacing:.02em}
+.basis .wrap{display:flex;flex-wrap:wrap;gap:22px;padding:11px 22px;align-items:center}
+.basis b{color:#fff}
+.basis .neq{margin-left:auto;color:#f0d9a8}
+
+section{padding:38px 0;border-bottom:1px solid var(--line)}
+.snum{font-family:"IBM Plex Mono",Menlo,monospace;font-size:12px;color:var(--flag);letter-spacing:.2em}
+h2{font-size:21px;margin:4px 0 20px;font-weight:700;color:var(--green-d)}
+
+/* tier ranking */
+.tiers{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--line);
+  padding:16px 14px;position:relative;display:flex;flex-direction:column;gap:8px}
+.card.T1{border-top-color:var(--t1)} .card.T2{border-top-color:var(--t2)} .card.T3{border-top-color:var(--t3)}
+.rank{font-family:"IBM Plex Mono",Menlo,monospace;font-size:11px;color:var(--flag)}
+.vname{font-size:18px;font-weight:700;line-height:1.1}
+.vmodel{font-size:11.5px;color:#6b6a5c;min-height:28px}
+.score{font-family:"IBM Plex Mono",Menlo,monospace;font-size:30px;font-weight:600;line-height:1}
+.tbadge{display:inline-block;font-family:"IBM Plex Mono",Menlo,monospace;font-size:11px;
+  font-weight:600;padding:2px 8px;border-radius:2px;color:#fff;width:fit-content}
+.tbadge.T1{background:var(--t1)} .tbadge.T2{background:var(--t2)} .tbadge.T3{background:var(--t3)}
+.gapline{font-family:"IBM Plex Mono",Menlo,monospace;font-size:11px;color:var(--flag)}
+.bar{height:5px;background:#e6e2d3;margin-top:2px;position:relative;overflow:hidden}
+.bar>i{position:absolute;left:0;top:0;bottom:0;background:var(--green)}
+
+/* weights */
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 26px}
+.wrow{display:flex;justify-content:space-between;align-items:center;border-bottom:1px dotted var(--line);
+  padding:7px 0;font-size:14px}
+.wrow .wn{font-family:"IBM Plex Mono",Menlo,monospace;font-size:13px;color:var(--green-d);font-weight:600}
+.legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;font-size:13px}
+.legend span{display:flex;align-items:center;gap:7px}
+.dot{width:11px;height:11px;border-radius:2px;display:inline-block}
+
+/* matrix */
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+.controls .lbl{font-family:"IBM Plex Mono",Menlo,monospace;font-size:11px;color:var(--flag);letter-spacing:.1em;text-transform:uppercase}
+.chip{font-family:"IBM Plex Mono",Menlo,monospace;font-size:12px;padding:4px 11px;border:1px solid var(--line);
+  background:var(--panel);cursor:pointer;border-radius:2px;color:#4a4940}
+.chip.on{background:var(--green-d);color:#fff;border-color:var(--green-d)}
+.tblwrap{overflow-x:auto;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-size:13px;background:var(--panel);min-width:900px}
+thead th{position:sticky;top:0;background:var(--green-d);color:#fff;text-align:left;padding:10px 12px;
+  font-weight:600;font-size:12.5px;vertical-align:bottom;z-index:2}
+thead th .m{display:block;font-family:"IBM Plex Mono",Menlo,monospace;font-size:10px;color:#cfe3d5;font-weight:400;margin-top:3px}
+tbody td{padding:8px 12px;border-bottom:1px solid #ece9dc;vertical-align:top}
+tbody td:first-child{font-family:"IBM Plex Mono",Menlo,monospace;color:#9a9686;font-size:11px;width:34px}
+td.param{font-weight:600;color:var(--green-d);width:190px}
+td.req{color:#6b6a5c;font-style:italic;width:150px}
+tr.sec td{background:#eef2ec;font-family:"IBM Plex Mono",Menlo,monospace;font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--green-d);font-weight:600;padding:7px 12px}
+td.best{background:var(--best);box-shadow:inset 3px 0 0 var(--best-line)}
+.neqflag{color:var(--amber);font-weight:700} .gapflag{color:var(--flag);font-style:italic}
+.cell-pos{color:var(--green-d)} .cell-neg{color:var(--red)}
+/* charts */
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.chart{background:var(--panel);border:1px solid var(--line);padding:16px 16px 12px}
+.chart h3{margin:0 0 3px;font-size:15px;color:var(--green-d)}
+.chart .sub{font-family:"IBM Plex Mono",Menlo,monospace;font-size:10.5px;color:var(--flag);margin-bottom:10px}
+.chart svg{width:100%;height:auto;display:block}
+.axis{stroke:#cfcbba;stroke-width:1}
+.grid-l{stroke:#e8e5d7;stroke-width:1}
+.axlbl{font-family:"IBM Plex Mono",Menlo,monospace;font-size:9px;fill:#8a8674}
+.reqline{stroke:#b23b3b;stroke-width:1;stroke-dasharray:4 3;opacity:.7}
+.clegend{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:9px;font-size:11px}
+.clegend span{display:flex;align-items:center;gap:5px;color:#4a4940}
+.clegend i{width:16px;height:3px;display:inline-block;border-radius:2px}
+.barlbl{font-family:"IBM Plex Mono",Menlo,monospace;font-size:9.5px;fill:#4a4940}
+.dotpt{stroke:#fff;stroke-width:1.2}
+.nodata{font-family:"IBM Plex Mono",Menlo,monospace;font-size:10px;fill:#b23b3b}
+@media(max-width:820px){.charts{grid-template-columns:1fr}}
+footer{padding:30px 0 60px;font-size:12px;color:#6b6a5c}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.disc{max-width:640px}
+@media(max-width:820px){.tiers{grid-template-columns:1fr 1fr}.wgrid{grid-template-columns:1fr}
+  h1{font-size:23px}.basis .neq{margin-left:0;width:100%}}
+@media(prefers-reduced-motion:no-preference){.bar>i{transition:width .9s cubic-bezier(.2,.7,.2,1)}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div>
+    <div class="eyebrow">Procurement Review · Confidential · Advait Greenergy</div>
+    <h1>PCS Ranking — <span>Apple-to-Apple</span><br/>2.5 MVA Central BESS Converter</h1>
+  </div>
+  <div class="hstat"><b id="hv">5</b>vendors scored<br/><span id="hd" class="mono"></span></div>
+</div></header>
+
+<div class="basis"><div class="wrap" id="basisrow"></div></div>
+
+<div class="wrap">
+
+<section id="s1">
+  <div class="snum">01</div><h2>Tier ranking</h2>
+  <div class="tiers" id="tiers"></div>
+</section>
+
+<section id="s3g">
+  <div class="snum">02</div><h2>Technical performance <span style="font-weight:400;font-size:13px;color:#6b6a5c">· solid dots = datasheet points · dashed = interpolated</span></h2>
+  <div class="charts" id="charts"></div>
+</section>
+
+<section id="s4">
+  <div class="snum">03</div><h2>How the tiers are decided</h2>
+  <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:40px" class="splitgrid">
+    <div>
+      <div class="eyebrow" style="margin-bottom:12px">Scoring weights · industry-standard utility BESS</div>
+      <div class="wgrid" id="weights"></div>
+    </div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:12px">Tier rules &amp; flags</div>
+      <p style="font-size:14px;margin:0 0 10px"><b class="mono" style="color:var(--t1)">T1</b> &nbsp;Meets the basis and composite score ≥ 70.</p>
+      <p style="font-size:14px;margin:0 0 10px"><b class="mono" style="color:var(--t2)">T2</b> &nbsp;Meets requirements or misses only on data not yet supplied; composite 52–69.</p>
+      <p style="font-size:14px;margin:0 0 10px"><b class="mono" style="color:var(--t3)">T3</b> &nbsp;Fails a mandatory requirement, or too much critical data missing.</p>
+      <p style="font-size:14px;margin:0 0 10px"><b class="neqflag">≠ / gap</b> &nbsp;Figure measured off the agreed basis, or not yet supplied — shown, scored as zero contribution, never silently passed.</p>
+    </div>
+  </div>
+  <div class="legend">
+    <span><i class="dot" style="background:var(--t1)"></i> Tier 1</span>
+    <span><i class="dot" style="background:var(--t2)"></i> Tier 2</span>
+    <span><i class="dot" style="background:var(--t3)"></i> Tier 3</span>
+    <span><i class="dot" style="background:var(--best-line)"></i> Best value in row</span>
+    <span><i class="dot" style="background:var(--flag)"></i> Data gap / not specified</span>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="snum">04</div><h2>Parameter matrix <span style="font-weight:400;font-size:13px;color:#6b6a5c">· best value per row highlighted</span></h2>
+  <div class="controls">
+    <span class="lbl">Filter</span>
+    <button class="chip on" data-f="all">All</button>
+    <button class="chip" data-f="gaps">Gaps only</button>
+    <button class="chip" data-f="scored">Scored params</button>
+  </div>
+  <div class="tblwrap"><table id="matrix"><thead id="mhead"></thead><tbody id="mbody"></tbody></table></div>
+</section>
+
+</div>
+
+<footer><div class="wrap">
+  <div class="disc">
+    <b>Basis for comparison.</b> All figures normalized to the 2.5 MVA / 690 V / full-power-@50°C basis.
+    Vendors better than basis (e.g. full power to 55°C) earn a scored bonus. FIMER and Inovance columns
+    derive from product datasheets, not filled-in response sheets — their high gap counts reflect brochure
+    omissions, not declined items. This is a structured decision aid, not procurement advice; confirm all
+    figures against vendor-signed submittals before award.
+  </div>
+  <div class="mono" style="text-align:right">Static snapshot<br/><span id="ts"></span></div>
+</div></footer>
+
+<script>
+
+// ===== DATA LAYER (CSV-driven) =====
+const STATIC = {"vendors": ["Hopewind", "Hoymiles", "Sineng", "FIMER", "Inovance"], "models": {"Hopewind": "Central PCS (2.5 MW class)", "Hoymiles": "HPCS2500-E-S", "Sineng": "EH-1250-HC-UD / EH-1725-HB-UD", "FIMER": "PVS980-58BC (2500 kVA)", "Inovance": "IES920-07-2500-C-D-EU"}, "weights": {"eff": 20, "temp": 15, "gfm": 15, "ovl": 10, "rel": 10, "grid": 10, "cool": 8, "warr": 7, "comm": 5}};
+
+
+function parseCSV(text){
+  const rows=[]; let i=0,f='',row=[],q=false;
+  while(i<text.length){const c=text[i];
+    if(q){ if(c=='"'){ if(text[i+1]=='"'){f+='"';i++;} else q=false;} else f+=c; }
+    else{ if(c=='"')q=true; else if(c==','){row.push(f);f='';} 
+      else if(c=='\n'||c=='\r'){ if(f!==''||row.length){row.push(f);rows.push(row);row=[];f='';} if(c=='\r'&&text[i+1]=='\n')i++; }
+      else f+=c; }
+    i++;
+  }
+  if(f!==''||row.length){row.push(f);rows.push(row);}
+  return rows;
+}
+
+const GAPRE=/^$|not specified|will s|will be shared|on order|confidential|kindly|receipt of order|discussed during commercial/i;
+const NEGRE=/^(na|n\/a|not available|not applicable|no\b|no redundancy|no seamless)/i;
+const POSRE=/compl|^yes|standard|available|seamless|four quadrant|mandatory/i;
+const isGap=t=>GAPRE.test((t||"").trim());
+const isPos=t=>{t=(t||"").trim(); if(isGap(t))return null; if(NEGRE.test(t))return false; if(POSRE.test(t))return true; return null;};
+const fnum=t=>{const m=(t||"").replace(/,/g,'').match(/(\d+\.?\d*)/);return m?parseFloat(m[1]):null;};
+
+function scoreVendor(v, get){
+  const W=STATIC.weights, s={}; let g=0;
+  // eff
+  let e=fnum(get(1)); if(e!=null){e=e<=1?e*100:e; s.eff=Math.max(0,Math.min(1,(e-96)/3.5));}
+  else{s.eff=isPos(get(1))?0.6:0; if(isGap(get(1)))g++;}
+  // temp
+  let tnum=null; [get(23),get(14)].forEach(t=>{const m=(t||"").match(/(\d{2})\s*(?:deg|°|℃|C)/);if(m)tnum=Math.max(tnum||0,+m[1]);});
+  s.temp = tnum?Math.max(0,Math.min(1,(tnum-40)/15)):(isPos(get(23))?0.5:0);
+  // gfm
+  const gf=[get(43),get(44),get(45),get(77)].join(" ").toLowerCase();
+  if(gf.includes("nov-2026")||gf.includes("available for"))s.gfm=0.5;
+  else if(gf.includes("no seamless")||gf.includes("not available"))s.gfm=0.5;
+  else if(isPos(get(43))||gf.includes("vsg")||gf.includes("gfm")||gf.includes("virtual"))s.gfm=1.0;
+  else s.gfm=0.4;
+  // overload
+  const ov=(get(15)||"").toLowerCase(); s.ovl=0;
+  if(ov.includes("150%"))s.ovl=1.0; else if(ov.includes("120")&&(ov.includes("60 s")||ov.includes("2 min")||ov.includes("1 min")))s.ovl=0.8;
+  else if(ov.includes("120"))s.ovl=0.7; else if(isPos(ov))s.ovl=0.6; else if(ov==="")g++;
+  // reliability
+  const rel=[get(82),get(83),get(84)]; s.rel=rel.filter(x=>!isGap(x)).length/3; g+=rel.filter(isGap).length;
+  // grid
+  const gc=[get(53),get(57),get(59),get(50)]; s.grid=gc.filter(x=>isPos(x)||/cea|iec/i.test(x||"")).length/gc.length;
+  // cool
+  const cool=(get(25)||"").toLowerCase();
+  s.cool=(/liquid|2 phase|2-phase/.test(cool))?1.0:(isPos(cool)?0.7:0.4);
+  // warranty
+  const w=(get(90)||"").toLowerCase();
+  s.warr=(w.includes("20 year"))?1.0:((w.includes("5 year"))?0.6:(isGap(w)?0:0.4)); if(isGap(w))g++;
+  // comms
+  const cm=[get(36),get(37),get(91)]; s.comm=cm.filter(x=>isPos(x)||/modbus|iec 61850/i.test(x||"")).length/cm.length;
+  return {s,g};
+}
+
+async function loadData(){
+  const [dtxt,ctxt]=await Promise.all([
+    fetch('data.csv').then(r=>r.text()),
+    fetch('chart_points.csv').then(r=>r.text())
+  ]);
+  const drows=parseCSV(dtxt), head=drows[0], V=head.slice(4);
+  const params=drows.slice(1).filter(r=>r.length>=5).map(r=>({
+    section:r[0], no:isNaN(+r[1])?r[1]:+r[1], param:r[2], req:r[3],
+    vals:Object.fromEntries(V.map((v,i)=>[v,r[4+i]]))
+  }));
+  const getFor=v=>no=>{const p=params.find(p=>String(p.no)===String(no));return p?p.vals[v]:"";};
+
+  const scores={},composite={},tiers={},gaps={},disp={};
+  V.forEach(v=>{
+    const {s,g}=scoreVendor(v,getFor(v)); scores[v]=s;
+    const W=STATIC.weights; composite[v]=Math.round(Object.keys(W).reduce((a,k)=>a+s[k]*W[k],0)*10)/10;
+    tiers[v]=composite[v]>=70?"T1":(composite[v]>=52?"T2":"T3");
+    disp[v]=params.filter(p=>isGap(p.vals[v])).length;
+  });
+
+  // charts from chart_points.csv
+  const crows=parseCSV(ctxt).slice(1);
+  const CH={derate:{},dcwin:{},overload:{},eff:{}};
+  V.forEach(v=>{CH.derate[v]=[];CH.overload[v]=[];CH.eff[v]=[null,null];CH.dcwin[v]=[0,0];});
+  crows.forEach(r=>{const[ch,v,x,y]=r; if(!V.includes(v))return;
+    if(ch==="derate")CH.derate[v].push([+x,+y]);
+    else if(ch==="dcwin")CH.dcwin[v]=[+x,+y];
+    else if(ch==="overload")CH.overload[v].push([x==="cont"?"cont":+x,+y]);
+    else if(ch==="eff_peak")CH.eff[v][0]=(y===""?null:+y);
+    else if(ch==="eff_euro")CH.eff[v][1]=(y===""?null:+y);
+  });
+
+  return {D:{vendors:V,models:STATIC.models,weights:STATIC.weights,params,scores,composite,tiers,disp_gaps:disp},CH};
+}
+
+loadData().then(({D,CH})=>{
+const V=D.vendors, MODELS=D.models, S=D.scores, C=D.composite, T=D.tiers, W=D.weights, DG=D.disp_gaps, P=D.params;
+// vendor colors for charts
+const VCOL={Hopewind:"#1f7a3d",Hoymiles:"#c07a1e",Sineng:"#2b6cb0",FIMER:"#7a4fb0",Inovance:"#b23b3b"};
+
+const _u={eff:"Efficiency",temp:"High-temp full power",gfm:"Grid-forming / inertia",ovl:"Overload capability",
+  rel:"Reliability (MTBF/MTTR)",grid:"Grid-code compliance",cool:"Cooling & environment",warr:"Warranty & service",comm:"Communication"};
+
+document.getElementById('hd').textContent = new Date().toISOString().slice(0,10);
+document.getElementById('ts').textContent = new Date().toISOString().slice(0,10);
+
+// basis banner
+const basis=[["Class","2.5 MVA central"],["AC","690 V"],["DC","≤1500 V"],["Full power","@ 50 °C"],["Altitude","≤1000 m"],["Mode","Grid-connected"]];
+document.getElementById('basisrow').innerHTML =
+  basis.map(b=>`<span><b>${b[0]}</b> ${b[1]}</span>`).join('') +
+  `<span class="neq">Off-basis figures flagged ≠ — not scored</span>`;
+
+// tier cards, sorted by composite
+const order=[...V].sort((a,b)=>C[b]-C[a]);
+document.getElementById('tiers').innerHTML = order.map((v,i)=>{
+  const t=T[v];
+  return `<div class="card ${t}">
+    <div class="rank">#${i+1}</div>
+    <div class="vname">${v}</div>
+    <div class="vmodel">${MODELS[v]}</div>
+    <div class="score">${C[v]}<span style="font-size:13px;color:#9a9686"> /100</span></div>
+    <div class="bar"><i style="width:0" data-w="${C[v]}%"></i></div>
+    <div class="tbadge ${t}">${t}</div>
+    <div class="gapline">${DG[v]} data gap${DG[v]==1?'':'s'}</div>
+  </div>`;
+}).join('');
+requestAnimationFrame(()=>document.querySelectorAll('.bar>i').forEach(el=>el.style.width=el.dataset.w));
+
+// weights
+document.getElementById('weights').innerHTML = Object.keys(W).map(k=>
+  `<div class="wrow"><span>${WLABEL[k]}</span><span class="wn">${W[k]}%</span></div>`).join('');
+
+// matrix
+document.getElementById('mhead').innerHTML =
+  `<tr><th>#</th><th>Parameter</th><th>Requirement</th>` +
+  V.map(v=>`<th>${v}<span class="m">${MODELS[v]}</span></th>`).join('') + `</tr>`;
+
+const GAPRE=/^$|not specified|will s|will be shared|on order|confidential|kindly|receipt of order|discussed during commercial/i;
+const NEGRE=/^(na|n\/a|not available|not applicable|no\b|no redundancy|no seamless)/i;
+const POSRE=/compl|^yes|standard|available|seamless|four quadrant|mandatory/i;
+
+function cellClass(txt){
+  const t=(txt||"").trim();
+  if(GAPRE.test(t)) return "gapflag";
+  if(NEGRE.test(t)) return "cell-neg";
+  if(POSRE.test(t)) return "cell-pos";
+  return "";
+}
+function isGap(t){return GAPRE.test((t||"").trim());}
+
+// best-value logic for a small set of numeric rows
+const NUMBEST={1:"max",2:"max",90:"max"}; // param no -> direction
+function num(t){const m=(t||"").replace(/,/g,'').match(/(\d+\.?\d*)/);return m?parseFloat(m[1]):null;}
+
+let curFilter="all";
+function render(){
+  let secShown={};
+  const rows=[];
+  let lastSec=null;
+  P.forEach(p=>{
+    const anyGap=V.some(v=>isGap(p.vals[v]));
+    const scored=[1,2,15,23,25,43,90].includes(+p.no)|| [4,5,44,45,53,57,59,82,83,84,36,37,91].includes(+p.no);
+    if(curFilter==="gaps" && !anyGap) return;
+    if(curFilter==="scored" && !scored) return;
+    if(p.section && p.section!==lastSec){
+      rows.push(`<tr class="sec"><td colspan="${V.length+3}">${p.section}</td></tr>`);
+      lastSec=p.section;
+    }
+    // best value
+    let bestV=null;
+    if(NUMBEST[+p.no]){
+      let vals=V.map(v=>({v,n:num(p.vals[v])})).filter(x=>x.n!=null);
+      if(vals.length){ vals.sort((a,b)=>b.n-a.n); bestV=vals[0].v; }
+    }
+    const tds=V.map(v=>{
+      const raw=p.vals[v]||"";
+      const cls=cellClass(raw);
+      const isBest=(v===bestV)?" best":"";
+      const disp = raw===""?'<span class="gapflag">— not specified</span>':raw.replace(/\n/g,'<br>');
+      return `<td class="${cls}${isBest}">${disp}</td>`;
+    }).join('');
+    rows.push(`<tr><td>${p.no}</td><td class="param">${p.param}</td><td class="req">${p.req||''}</td>${tds}</tr>`);
+  });
+  document.getElementById('mbody').innerHTML=rows.join('');
+}
+render();
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+  c.classList.add('on'); curFilter=c.dataset.f; render();
+}));
+
+// ===== CHARTS =====
+
+function legend(vendors){
+  return `<div class="clegend">`+vendors.map(v=>`<span><i style="background:${VCOL[v]}"></i>${v}</span>`).join('')+`</div>`;
+}
+
+// 1) Temperature vs power derating (line, dots real, dashed interp)
+function chartDerate(){
+  const W=430,H=250,pad={l:46,r:14,t:14,b:34};
+  const xs=[20,60], ys=[2000,2800];
+  const X=t=>pad.l+(t-xs[0])/(xs[1]-xs[0])*(W-pad.l-pad.r);
+  const Y=p=>H-pad.b-(p-ys[0])/(ys[1]-ys[0])*(H-pad.t-pad.b);
+  let g='';
+  for(let t=20;t<=60;t+=10){g+=`<line class="grid-l" x1="${X(t)}" y1="${pad.t}" x2="${X(t)}" y2="${H-pad.b}"/><text class="axlbl" x="${X(t)}" y="${H-pad.b+13}" text-anchor="middle">${t}°C</text>`;}
+  for(let p=2000;p<=2800;p+=200){g+=`<line class="grid-l" x1="${pad.l}" y1="${Y(p)}" x2="${W-pad.r}" y2="${Y(p)}"/><text class="axlbl" x="${pad.l-6}" y="${Y(p)+3}" text-anchor="end">${p}</text>`;}
+  let paths='';
+  Object.keys(CH.derate).forEach(v=>{
+    let pts=CH.derate[v].slice().sort((a,b)=>a[0]-b[0]);
+    if(pts.length>1){
+      const dline=pts.map((p,i)=>(i?'L':'M')+X(p[0])+' '+Y(p[1])).join(' ');
+      paths+=`<path d="${dline}" fill="none" stroke="${VCOL[v]}" stroke-width="2" stroke-dasharray="5 4" opacity=".85"/>`;
+    }
+    pts.forEach(p=>{paths+=`<circle class="dotpt" cx="${X(p[0])}" cy="${Y(p[1])}" r="4.5" fill="${VCOL[v]}"/>`;});
+  });
+  return `<div class="chart"><h3>Temperature vs deliverable power</h3>
+    <div class="sub">2.5 MVA class · kW output vs ambient °C</div>
+    <svg viewBox="0 0 ${W} ${H}">${g}
+    <line class="axis" x1="${pad.l}" y1="${pad.t}" x2="${pad.l}" y2="${H-pad.b}"/>
+    <line class="axis" x1="${pad.l}" y1="${H-pad.b}" x2="${W-pad.r}" y2="${H-pad.b}"/>
+    ${paths}</svg>${legend(Object.keys(CH.derate))}</div>`;
+}
+
+// 2) DC voltage window (range bars)
+function chartDC(){
+  const V=Object.keys(CH.dcwin), W=430,H=250,pad={l:70,r:20,t:14,b:30};
+  const xs=[600,1550];
+  const X=v=>pad.l+(v-xs[0])/(xs[1]-xs[0])*(W-pad.l-pad.r);
+  const bh=(H-pad.t-pad.b)/V.length*0.55, gap=(H-pad.t-pad.b)/V.length;
+  let g='';
+  for(let v=600;v<=1500;v+=300){g+=`<line class="grid-l" x1="${X(v)}" y1="${pad.t}" x2="${X(v)}" y2="${H-pad.b}"/><text class="axlbl" x="${X(v)}" y="${H-pad.b+13}" text-anchor="middle">${v}V</text>`;}
+  let bars='';
+  V.forEach((v,i)=>{
+    const y=pad.t+i*gap+gap*0.2, a=CH.dcwin[v];
+    bars+=`<rect x="${X(a[0])}" y="${y}" width="${X(a[1])-X(a[0])}" height="${bh}" fill="${VCOL[v]}" opacity=".82" rx="2"/>`;
+    bars+=`<text class="barlbl" x="${pad.l-8}" y="${y+bh/2+3}" text-anchor="end">${v}</text>`;
+    bars+=`<text class="barlbl" x="${X(a[0])+4}" y="${y+bh/2+3}" fill="#fff">${a[0]}–${a[1]}</text>`;
+  });
+  return `<div class="chart"><h3>Usable DC voltage window</h3>
+    <div class="sub">wider = more battery-string design freedom</div>
+    <svg viewBox="0 0 ${W} ${H}">${g}
+    <line class="axis" x1="${pad.l}" y1="${pad.t}" x2="${pad.l}" y2="${H-pad.b}"/>
+    ${bars}</svg></div>`;
+}
+
+// 3) Overload capability (grouped bars by duration)
+function chartOvl(){
+  const V=Object.keys(CH.overload), W=430,H=250,pad={l:46,r:14,t:14,b:44};
+  const buckets=[["1","1 s"],["10","10 s"],["120","2 min"],["600","10 min"],["cont","cont"]];
+  const ys=[100,155];
+  const Y=p=>H-pad.b-(p-ys[0])/(ys[1]-ys[0])*(H-pad.t-pad.b);
+  const bw=(W-pad.l-pad.r)/buckets.length;
+  let g='';
+  for(let p=100;p<=150;p+=10){g+=`<line class="grid-l" x1="${pad.l}" y1="${Y(p)}" x2="${W-pad.r}" y2="${Y(p)}"/><text class="axlbl" x="${pad.l-6}" y="${Y(p)+3}" text-anchor="end">${p}%</text>`;}
+  let bars='', any=false;
+  buckets.forEach((b,bi)=>{
+    const x0=pad.l+bi*bw;
+    g+=`<text class="axlbl" x="${x0+bw/2}" y="${H-pad.b+13}" text-anchor="middle">${b[1]}</text>`;
+    const present=V.filter(v=>CH.overload[v].some(p=>String(p[0])===b[0]));
+    present.forEach((v,vi)=>{
+      const pct=CH.overload[v].find(p=>String(p[0])===b[0])[1];
+      const w=bw*0.72/Math.max(present.length,1), x=x0+bw*0.14+vi*w;
+      bars+=`<rect x="${x}" y="${Y(pct)}" width="${w-1}" height="${Y(100)-Y(pct)}" fill="${VCOL[v]}" opacity=".85"/>`;
+      any=true;
+    });
+  });
+  const note = any?'':`<text class="nodata" x="${W/2}" y="${H/2}" text-anchor="middle">Only 3 vendors specified overload</text>`;
+  return `<div class="chart"><h3>Overload capability</h3>
+    <div class="sub">% of rated vs sustain duration · FIMER &amp; Inovance not specified</div>
+    <svg viewBox="0 0 ${W} ${H}">${g}
+    <line class="axis" x1="${pad.l}" y1="${pad.t}" x2="${pad.l}" y2="${H-pad.b}"/>
+    <line class="axis" x1="${pad.l}" y1="${Y(100)}" x2="${W-pad.r}" y2="${Y(100)}"/>
+    ${bars}${note}</svg>${legend(V.filter(v=>CH.overload[v].length))}</div>`;
+}
+
+// 4) Efficiency (grouped bars, peak vs euro/cec, req lines)
+function chartEff(){
+  const V=Object.keys(CH.eff), W=430,H=250,pad={l:46,r:14,t:14,b:44};
+  const ys=[97,99.6];
+  const Y=p=>H-pad.b-(p-ys[0])/(ys[1]-ys[0])*(H-pad.t-pad.b);
+  const bw=(W-pad.l-pad.r)/V.length;
+  let g='';
+  for(let p=97;p<=99.5;p+=0.5){g+=`<line class="grid-l" x1="${pad.l}" y1="${Y(p)}" x2="${W-pad.r}" y2="${Y(p)}"/><text class="axlbl" x="${pad.l-6}" y="${Y(p)+3}" text-anchor="end">${p}%</text>`;}
+  // requirement lines
+  g+=`<line class="reqline" x1="${pad.l}" y1="${Y(99)}" x2="${W-pad.r}" y2="${Y(99)}"/><text class="axlbl" x="${W-pad.r}" y="${Y(99)-3}" text-anchor="end" fill="#b23b3b">peak req ≥99</text>`;
+  g+=`<line class="reqline" x1="${pad.l}" y1="${Y(98.5)}" x2="${W-pad.r}" y2="${Y(98.5)}"/>`;
+  let bars='';
+  V.forEach((v,i)=>{
+    const x0=pad.l+i*bw; const e=CH.eff[v];
+    g+=`<text class="axlbl" x="${x0+bw/2}" y="${H-pad.b+13}" text-anchor="middle">${v.slice(0,4)}</text>`;
+    const w=bw*0.3;
+    if(e[0]!=null){bars+=`<rect x="${x0+bw*0.16}" y="${Y(e[0])}" width="${w}" height="${Y(97)-Y(e[0])}" fill="${VCOL[v]}" opacity=".9"/>`;}
+    else{bars+=`<text class="nodata" x="${x0+bw*0.31}" y="${Y(97)-4}" text-anchor="middle" transform="rotate(-90 ${x0+bw*0.31} ${Y(97)-4})">n/s</text>`;}
+    if(e[1]!=null){bars+=`<rect x="${x0+bw*0.54}" y="${Y(e[1])}" width="${w}" height="${Y(97)-Y(e[1])}" fill="${VCOL[v]}" opacity=".5"/>`;}
+  });
+  return `<div class="chart"><h3>Efficiency vs requirement</h3>
+    <div class="sub">solid = peak · faded = Euro/CEC · red = spec floor · n/s = not stated</div>
+    <svg viewBox="0 0 ${W} ${H}">${g}
+    <line class="axis" x1="${pad.l}" y1="${pad.t}" x2="${pad.l}" y2="${H-pad.b}"/>
+    <line class="axis" x1="${pad.l}" y1="${H-pad.b}" x2="${W-pad.r}" y2="${H-pad.b}"/>
+    ${bars}</svg></div>`;
+}
+
+document.getElementById('charts').innerHTML = chartDerate()+chartDC()+chartOvl()+chartEff();
+
+
+}).catch(e=>{document.body.insertAdjacentHTML("afterbegin",'<div style="background:#b23b3b;color:#fff;padding:14px;font-family:monospace">Could not load data.csv / chart_points.csv — make sure both files sit next to index.html in the repo. '+e+'</div>');});
+</script>
+</body>
+</html>
