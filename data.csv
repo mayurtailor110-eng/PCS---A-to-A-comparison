@@ -3,32 +3,31 @@ section,no,parameter,requirement,Hopewind,Hoymiles,Delta,"FIMER
 (CPS 1500/3000_260817-R0)","Sineng
 (EH-1250-HC-UD / EH-1725-HB-UD)","Inovance
 (IES920-07-2500-C-D-EU)",ENERZOLVE
-Performance Envelope,1,Peak efficiency,≥ 99.0 %,0.985,Complied,Complied,98.8% max,"99.21% @1200Vdc, 690Vac",0.99,0,0.985
-Performance Envelope,2,Euro / CEC efficiency,≥ 98.5 %,NA,Complied,Complied,"98.5% (CEC), 98.6% Euro-eta","99.03%/99.01% @1200Vdc, 690Vac",0.98,PCS Efficiency≥98.3%,NA
-Performance Envelope,3,Power factor range,0.9 lead – 0.89 lag,+-1,-1 to +1,Complied,Four quadrant,Four Quadrant,-1 to +1,Complied,1.0 leading to 1.0 lagging
-Performance Envelope,4,Response time (P/Q),< 50 ms,<30ms,Complied,< 150 ms,Not specified in datasheet,<50ms,complied,Complied,Yet to test and confirm
-Performance Envelope,5,Grid-forming step response,< 5 ms,"PCS side <200ms, whole plant level is N/A",Complied,Detailed information will be shared during detailed engineering,Not specified in datasheet,Comply as per current CEA guideline,complied,,Yet to test and confirm
-Performance Envelope,6,Design / service life,~ 15 - 20 years,20 years,Complied,Complied,At least 25 years,Comply,25 years,Complied,15-20 yrs
-Product Range,7,String PCS,50 – 250 kW,NA,NA,-,NA,NA,NA,400kW and 430kW,NA
+Performance Envelope,1,Peak efficiency,≥ 99.0 %,98.5,99,99,98.8,99.21,99,99,98.5
+Performance Envelope,2,Euro / CEC efficiency,≥ 98.5 %,NA,98.5,98.5,98.6,99.03,98,98.3,NA
+Performance Envelope,3,Power factor range,0.9 lead – 0.89 lag,-1 to +1,-1 to +1,~-0.89 to +0.9,-1 to +1,-1 to +1,-1 to +1,~-0.89 to +0.9,-1 to +1
+Performance Envelope,4,Response time (P/Q),< 50 ms,30,50,150,NA,50,50,50,NA
+Performance Envelope,5,Grid-forming step response,< 5 ms,200,5,NA,NA,5,5,NA,NA
+Performance Envelope,6,Design / service life,~ 15 - 20 years,20,20,20,25,20,25,20,20
+Product Range,7,String PCS,50 – 250 kW,NA,NA,NA,NA,NA,NA,400kW and 430kW,NA
 Product Range,8,Modular PCS,250 kW – 1.5 MW,NA,,Base model Capacity - 1.1MW and 1.25MW,NA,NA,NA,"400kW,430kW and 432kW",NA
 Product Range,9,Central PCS,1.5 – 5 MW,2.5MW @50 deg,2.5MVA,"By paralleling the modular PCS, total capacity can be enhanced upto 6.25MW",869–5000 kVA range (2028–2210 kVA @50°C for 2500-L),0.69MW~1.59MW/1.39MW~3.18MW,"1 - EH-1250-HC-UD
-2 - EH-1725-HB-UD",Complied,Complied
-Product Range,10,Redundancy,N+1 at utility scale,"N+1 can support, but it's necessary to buy an additional PCS as a backup",Not available,PCS supports parallel installation upto 5 units. Redundancy can be provided as per site requirements.,Not specified in datasheet,1+2/1+1 under same LV/1x4 under Multi-LV,Yes,Complied,Complied
+2 - EH-1725-HB-UD",1.5 – 5 MW,1.5 – 5 MW
+Product Range,10,Redundancy,N+1 at utility scale,Yes,NA,Yes,NA,Yes,Yes,Yes,Yes
 AC Interface,11,Nominal AC voltage,400 V / 690 V,690 V,690V,Modular PCS - 690VAC,480 / 520 / 560 / 600 / 630 / 660 / 690 V,350~800Vac ± 10%,607~759V,690Vac,690V
-AC Interface,12,Frequency,50 / 60 Hz ± configurable,50Hz,Complied,50Hz,50/60 Hz (±10 Hz),50/60Hz ± 10%,50Hz/ 45~55Hz,50Hz is standard. 60Hz could be customized,50/60
-AC Interface,13,THD (current),< 3 % at rated power,<3%,Complied,Complied,< 3 %,Comply,< 3 % at rated power,Complied,< 3 % at rated power
-AC Interface,14,DC injection,< 0.5 % of rated current,0.5% of rated current,Complied,Complied,Not specified in datasheet,Comply,< 0.5 % of rated current,Complied,To be confirmed.
-AC Interface,15,Overload capability,110 % continuous; 120 % for 60 s,"110% long term,120 for 10 sec,150% for 1sec",Complied,Complied 110% continuous at 30°C.,Not specified in datasheet,110% for 10sec,110 % for 10 mins ; 120 % for 2 mins,Complied,To be confirmed.
-DC Interface,16,DC voltage window,600 – 1500 V,1000-1500 V DC,1000-1500,Complied with 1000V - 1500VDC,680–1500 V (Umax 1500 V),511~1500Vdc,1000 - 1500 Vdc,1000-1500V,1000-1500V
-DC Interface,17,Insulation monitoring,Continuous,NA,Complied,Complied,Not specified in datasheet,Optional,complied,Complied,To be confirmed.
-DC Interface,18,DC precharge / softstart,Standard,Standard,Complied,Complied,Not specified in datasheet,Yes,complied,Complied,Complied
-DC Interface,19,Reverse-polarity protection,Mandatory,Complied,Complied,Complied,Yes (DC reverse polarity),Yes,complied,Complied,Compliant
-Mechanical,20,Ingress protection,"IP54, IP65 optional",IP 66,IP65,Complied,IP65 electronics / IP55 rest; Type 3R,IP65 Outdoor,IP65 complied,IP65,IP54
-Mechanical,21,Corrosion class,C4 standard; C5-M optional,C5 standard for India,Complied,Complied,Not specified in datasheet,C5M standard,C4 standard & can be discussed,Complied,C4
-Mechanical,22,Seismic qualification,IEEE 693 or equivalent,Certification N/A,Please share Seismeic requirement,Complied,Not specified in datasheet,Zone V standard,Provision for bolting,Complied,Complied
-Thermal,23,Ambient (full power target),≥ 50 °C without derating,2.5MW @50 deg,Complied,Complied,Full power to ~50°C (power limiting after 50°C),51°C for full power,"EH-1250-HC-UD - 55deg no derating 
-EH-1725-HB-UD - 45deg no derating",under 55℃ without derating,Not met
-Thermal,24,Max ambient (operational),− 20 °C to + 60 °C,-40 to +60 deg,Complied,Complied,−20 … +60 °C (−40°C option),-25°C to 60°C (>51°C de-rated),-40~60degC,-40 °C to + 60 °C,~ -30 C to +60 C
+AC Interface,12,Frequency,50 / 60 Hz ± configurable,50Hz,50 / 60 Hz ± configurable,50Hz,50/60 Hz (±10 Hz),50/60Hz ± 10%,50Hz/ 45~55Hz,50 / 60 Hz ± configurable,50/60
+AC Interface,13,THD (current),< 3 % at rated power,<3%,<3%,<3%,< 3 %,<3%,<3%,<3%,<3%
+AC Interface,14,DC injection,< 0.5 % of rated current,0.5% of rated current,0.5% of rated current,0.5% of rated current,NA,0.5% of rated current,< 0.5 % of rated current,0.5% of rated current,0.5% of rated current
+AC Interface,15,Overload capability,110 % continuous; 120 % for 60 s,"110% long term,120 for 10 sec,150% for 1sec",110 % continuous; 120 % for 60 s,Complied 110% continuous at 30°C.,Not specified in datasheet,110% for 10sec,110 % for 10 mins ; 120 % for 2 mins,110 % continuous; 120 % for 60 s,To be confirmed.
+DC Interface,16,DC voltage window,600 – 1500 V,1000-1500 V DC,1000-1500,1000V - 1500VDC,680–1500 V (Umax 1500 V),511-1500Vdc,1000 - 1500 Vdc,1000-1500V,1000-1500V
+DC Interface,17,Insulation monitoring,Continuous,NA,Continuous,Continuous,Not specified in datasheet,Optional,Continuous,Continuous,To be confirmed.
+DC Interface,18,DC precharge / softstart,Standard,Standard,Standard,Standard,Not specified in datasheet,Standard,Standard,Standard,Standard
+DC Interface,19,Reverse-polarity protection,Mandatory,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes
+Mechanical,20,Ingress protection,"IP54, IP65 optional",IP 66,IP65,IP65,IP65 electronics / IP55 rest; Type 3R,IP65 Outdoor,IP65 complied,IP65,IP54
+Mechanical,21,Corrosion class,C4 standard; C5-M optional,C5,C4,C4,NA,C5,C4,C4,C4
+Mechanical,22,Seismic qualification,IEEE 693 or equivalent,Certification N/A,NA,Yes,NA,Yes,NA,Yes,Yes
+Thermal,23,Ambient (full power target),≥ 50 °C without derating,2.5MW @50 deg,Yes,Yes,Yes,Yes,Yes,Yes,No
+Thermal,24,Max ambient (operational),− 20 °C to + 60 °C,-40 to +60 deg,− 20 °C to + 60 °C,− 20 °C to + 60 °C,− 20 °C to + 60 °C,-25°C to 60°C (>51°C de-rated),-40~60degC,-40 °C to + 60 °C,~ -30 C to +60 C
 Thermal,25,Cooling method,Forced air / liquid per class,Liquid cooled,Liquid cooling,Complied,"Patented self-contained thermosyphon (liquid-cooled ratings, air-cooling simplicity)",Forced Air,advanced 2 phase + forced air cooling,Air-liquid cooling,Intelligent/forced air (hybrid) cooling
 Thermal,26,Filter / maintenance,"Tool-free, long interval",N/A for air filter,As per site condition,"Tool free, interval 1 month","Low maintenance, no fillable liquids/pumps/valves",Yes,complied,Complied,Not met
 Thermal,27,Cooling redundancy,Fan N+1 at utility scale,"N/A, only possible for extra spare part",No redundancy,Not Available,Not specified in datasheet,Adequate,Yes,Will have one spare Fan on site,Not met
@@ -114,3 +113,4 @@ Testing Regime,89,Grid-code test,Compliance,CEA certification attached,Reports w
 Warranty & Service,90,Standard warranty,≥ 5 years,Standard 5 years ectended up to 20 years,Will be discussed during commercials,Standard warranty 5 years,Warranty extensions available,5 Years,standard 5 years of warranty,Complied,Compliant
 Software / Firmware / OTA,91,Control APIs,"Documented, versioned",For SCAD & EMS control we have the Modbus register map,Modbus mapping details of PCS will be shared,Will be shared during detailed engg.,Modbus/Profinet/Ethernet IP; remote monitoring,DDE,Kindly refer MODBUS communication document which will be shared later,,In-Progress
 Software / Firmware / OTA,92,OTA channel,authenticated,Yes,Not available,Will be shared during detailed engg.,Remote monitoring available,DDE,complied,,In-Progress
+,0,,,,,,,,,,
