@@ -40,7 +40,7 @@ section{padding:38px 0;border-bottom:1px solid var(--line)}
 h2{font-size:21px;margin:4px 0 20px;font-weight:700;color:var(--green-d)}
 
 /* tier ranking */
-.tiers{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px}
 .card{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--line);
   padding:16px 14px;position:relative;display:flex;flex-direction:column;gap:8px}
 .card.T1{border-top-color:var(--t1)} .card.T2{border-top-color:var(--t2)} .card.T3{border-top-color:var(--t3)}
@@ -251,7 +251,15 @@ async function loadData(){
     fetch('data.csv').then(r=>r.text()),
     fetch('chart_points.csv').then(r=>r.text())
   ]);
-  const drows=parseCSV(dtxt), head=drows[0], V=head.slice(4);
+  const drows=parseCSV(dtxt), head=drows[0], rawV=head.slice(4);
+  // Each header cell may be "Name" or "Name\n(model)". Split into clean name + model.
+  const V=[], MODELS={};
+  rawV.forEach(h=>{
+    const parts=(h||"").split("\n");
+    const name=parts[0].trim();
+    MODELS[name]=(parts.slice(1).join(" ").replace(/[()]/g,"").trim())||name;
+    V.push(name);
+  });
   const params=drows.slice(1).filter(r=>r.length>=5).map(r=>({
     section:r[0], no:isNaN(+r[1])?r[1]:+r[1], param:r[2], req:r[3],
     vals:Object.fromEntries(V.map((v,i)=>[v,r[4+i]]))
@@ -278,13 +286,14 @@ async function loadData(){
     else if(ch==="eff_euro")CH.eff[v][1]=(y===""?null:+y);
   });
 
-  return {D:{vendors:V,models:STATIC.models,weights:STATIC.weights,params,scores,composite,tiers,disp_gaps:disp},CH};
+  return {D:{vendors:V,models:MODELS,weights:STATIC.weights,params,scores,composite,tiers,disp_gaps:disp},CH};
 }
 
 loadData().then(({D,CH})=>{
 const V=D.vendors, MODELS=D.models, S=D.scores, C=D.composite, T=D.tiers, W=D.weights, DG=D.disp_gaps, P=D.params;
 // vendor colors for charts
-const VCOL={Hopewind:"#1f7a3d",Hoymiles:"#c07a1e",Sineng:"#2b6cb0",FIMER:"#7a4fb0",Inovance:"#b23b3b"};
+const PALETTE=["#1f7a3d","#c07a1e","#2b6cb0","#7a4fb0","#b23b3b","#0f766e","#a16207","#9333a3","#4b5563","#be185d"];
+const VCOL={}; V.forEach((v,i)=>VCOL[v]=PALETTE[i%PALETTE.length]);
 
 const _u={eff:"Efficiency",temp:"High-temp full power",gfm:"Grid-forming / inertia",ovl:"Overload capability",
   rel:"Reliability (MTBF/MTTR)",grid:"Grid-code compliance",cool:"Cooling & environment",warr:"Warranty & service",comm:"Communication"};
