@@ -85,7 +85,8 @@ td.best{background:var(--best);box-shadow:inset 3px 0 0 var(--best-line)}
 .neqflag{color:var(--amber);font-weight:700} .gapflag{color:var(--flag);font-style:italic}
 .cell-pos{color:var(--green-d)} .cell-neg{color:var(--red)}
 /* charts */
-.charts{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:26px}
+.chart svg{width:100%;height:auto;display:block}
 .chart{background:var(--panel);border:1px solid var(--line);padding:16px 16px 12px}
 .chart h3{margin:0 0 3px;font-size:15px;color:var(--green-d)}
 .chart .sub{font-family:"IBM Plex Mono",Menlo,monospace;font-size:10.5px;color:var(--flag);margin-bottom:10px}
@@ -422,12 +423,17 @@ function legend(vendors){
 // 1) Temperature vs power derating (line, dots real, dashed interp)
 function chartDerate(){
   const W=430,H=250,pad={l:46,r:14,t:14,b:34};
-  const xs=[20,60], ys=[2000,2800];
+  const allP=Object.values(CH.derate).flat();
+  const allX=allP.map(p=>p[0]), allY=allP.map(p=>p[1]);
+  const xs=[Math.min(20,...allX), Math.max(60,...allX)];
+  let ylo=allY.length?Math.min(...allY):2000, yhi=allY.length?Math.max(...allY):2800;
+  const ym=(yhi-ylo)*0.1||100; ylo-=ym; yhi+=ym;
+  const ys=[ylo,yhi];
   const X=t=>pad.l+(t-xs[0])/(xs[1]-xs[0])*(W-pad.l-pad.r);
   const Y=p=>H-pad.b-(p-ys[0])/(ys[1]-ys[0])*(H-pad.t-pad.b);
   let g='';
-  for(let t=20;t<=60;t+=10){g+=`<line class="grid-l" x1="${X(t)}" y1="${pad.t}" x2="${X(t)}" y2="${H-pad.b}"/><text class="axlbl" x="${X(t)}" y="${H-pad.b+13}" text-anchor="middle">${t}°C</text>`;}
-  for(let p=2000;p<=2800;p+=200){g+=`<line class="grid-l" x1="${pad.l}" y1="${Y(p)}" x2="${W-pad.r}" y2="${Y(p)}"/><text class="axlbl" x="${pad.l-6}" y="${Y(p)+3}" text-anchor="end">${p}</text>`;}
+  for(let t=Math.ceil(xs[0]/10)*10;t<=xs[1];t+=10){g+=`<line class="grid-l" x1="${X(t)}" y1="${pad.t}" x2="${X(t)}" y2="${H-pad.b}"/><text class="axlbl" x="${X(t)}" y="${H-pad.b+13}" text-anchor="middle">${t}°C</text>`;}
+  for(let i=0;i<=4;i++){const p=ys[0]+(ys[1]-ys[0])*i/4;g+=`<line class="grid-l" x1="${pad.l}" y1="${Y(p)}" x2="${W-pad.r}" y2="${Y(p)}"/><text class="axlbl" x="${pad.l-6}" y="${Y(p)+3}" text-anchor="end">${Math.round(p)}</text>`;}
   let paths='';
   Object.keys(CH.derate).forEach(v=>{
     let pts=CH.derate[v].slice().sort((a,b)=>a[0]-b[0]);
@@ -438,7 +444,7 @@ function chartDerate(){
     pts.forEach(p=>{paths+=`<circle class="dotpt" cx="${X(p[0])}" cy="${Y(p[1])}" r="5.5" fill="${VCOL[v]}" data-tip="${v}||${p[0]} °C ambient|${p[1]} kW deliverable"/>`;});
   });
   return `<div class="chart"><h3>Temperature vs deliverable power</h3>
-    <div class="sub">2.5 MVA class · kW output vs ambient °C</div>
+    <div class="sub">kW output vs ambient °C · note: mixed 1250 &amp; 2500 kVA classes</div>
     <svg viewBox="0 0 ${W} ${H}">${g}
     <line class="axis" x1="${pad.l}" y1="${pad.t}" x2="${pad.l}" y2="${H-pad.b}"/>
     <line class="axis" x1="${pad.l}" y1="${H-pad.b}" x2="${W-pad.r}" y2="${H-pad.b}"/>
@@ -558,20 +564,31 @@ document.getElementById('charts').innerHTML = chartDerate()+chartDC()+chartOvl()
   // generic multi-series line chart from long-format rows
   function lineChart(title, sub, rows, xKey, yKey, xLabel, yLabel, xdomain, ydomain, seriesKey){
     const W=430,H=250,pad={l:48,r:14,t:14,b:36};
-    const X=x=>pad.l+(x-xdomain[0])/(xdomain[1]-xdomain[0])*(W-pad.l-pad.r);
-    const Y=y=>H-pad.b-(y-ydomain[0])/(ydomain[1]-ydomain[0])*(H-pad.t-pad.b);
-    // group by vendor (+series)
+    // group by vendor (+series) first, so we can auto-fit axes to real data
     const byV={};
     rows.forEach(r=>{const yv=parseFloat(r[yKey]); if(isNaN(yv))return;
       const key=seriesKey?r.vendor+" ("+r[seriesKey]+")":r.vendor;
       (byV[key]=byV[key]||[]).push([parseFloat(r[xKey]),yv,r.vendor]);});
     const vendorsWithData=[...new Set(Object.values(byV).flat().map(p=>p[2]))];
+    // ---- auto-fit domains from actual data (fallback to passed-in domain) ----
+    const allPts=Object.values(byV).flat();
+    function fit(vals, fallback){
+      if(!vals.length) return fallback;
+      let lo=Math.min(...vals), hi=Math.max(...vals);
+      if(lo===hi){lo-=1;hi+=1;}                 // avoid zero-height axis
+      const m=(hi-lo)*0.08;                      // 8% padding so points aren't on the edge
+      return [lo-m, hi+m];
+    }
+    const xs=allPts.map(p=>p[0]), ys=allPts.map(p=>p[1]);
+    const xd=fit(xs, xdomain), yd=fit(ys, ydomain);
+    const X=x=>pad.l+(x-xd[0])/(xd[1]-xd[0])*(W-pad.l-pad.r);
+    const Y=y=>H-pad.b-(y-yd[0])/(yd[1]-yd[0])*(H-pad.t-pad.b);
     let g='';
     // gridlines x
     const xticks=5;
-    for(let i=0;i<=xticks;i++){const xv=xdomain[0]+(xdomain[1]-xdomain[0])*i/xticks;
+    for(let i=0;i<=xticks;i++){const xv=xd[0]+(xd[1]-xd[0])*i/xticks;
       g+=`<line class="grid-l" x1="${X(xv)}" y1="${pad.t}" x2="${X(xv)}" y2="${H-pad.b}"/><text class="axlbl" x="${X(xv)}" y="${H-pad.b+13}" text-anchor="middle">${Math.round(xv)}</text>`;}
-    for(let i=0;i<=4;i++){const yv=ydomain[0]+(ydomain[1]-ydomain[0])*i/4;
+    for(let i=0;i<=4;i++){const yv=yd[0]+(yd[1]-yd[0])*i/4;
       g+=`<line class="grid-l" x1="${pad.l}" y1="${Y(yv)}" x2="${W-pad.r}" y2="${Y(yv)}"/><text class="axlbl" x="${pad.l-6}" y="${Y(yv)+3}" text-anchor="end">${Math.round(yv*10)/10}</text>`;}
     let paths='';
     Object.keys(byV).forEach(key=>{
