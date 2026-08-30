@@ -440,6 +440,8 @@ function chartDerate(){
     if(pts.length>1){
       const dline=pts.map((p,i)=>(i?'L':'M')+X(p[0])+' '+Y(p[1])).join(' ');
       paths+=`<path d="${dline}" fill="none" stroke="${VCOL[v]}" stroke-width="2" stroke-dasharray="5 4" opacity=".85"/>`;
+      const rng=`${pts[0][1]}–${pts[pts.length-1][1]} kW`;
+      paths+=`<path d="${dline}" fill="none" stroke="transparent" stroke-width="14" data-tip="${v}||${pts[0][0]}–${pts[pts.length-1][0]} °C|${rng}"/>`;
     }
     pts.forEach(p=>{paths+=`<circle class="dotpt" cx="${X(p[0])}" cy="${Y(p[1])}" r="5.5" fill="${VCOL[v]}" data-tip="${v}||${p[0]} °C ambient|${p[1]} kW deliverable"/>`;});
   });
@@ -593,7 +595,13 @@ document.getElementById('charts').innerHTML = chartDerate()+chartDC()+chartOvl()
     let paths='';
     Object.keys(byV).forEach(key=>{
       const pts=byV[key].sort((a,b)=>a[0]-b[0]); const col=VCOL[pts[0][2]]||"#888";
-      if(pts.length>1)paths+=`<path d="${pts.map((p,i)=>(i?'L':'M')+X(p[0])+' '+Y(p[1])).join(' ')}" fill="none" stroke="${col}" stroke-width="2" opacity=".85"/>`;
+      const rng=`${pts[0][1]}–${pts[pts.length-1][1]}`;
+      if(pts.length>1){
+        const d=pts.map((p,i)=>(i?'L':'M')+X(p[0])+' '+Y(p[1])).join(' ');
+        paths+=`<path d="${d}" fill="none" stroke="${col}" stroke-width="2" opacity=".85"/>`;
+        // invisible thick hit-line so hovering anywhere on the line shows the tooltip
+        paths+=`<path d="${d}" fill="none" stroke="transparent" stroke-width="14" data-tip="${key}||${yLabel} range: ${rng}|${pts.length} points"/>`;
+      }
       pts.forEach(p=>{paths+=`<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="3.5" fill="${col}" data-tip="${key}||${xLabel}: ${p[0]}|${yLabel}: ${p[1]}"/>`;});
     });
     const empty = vendorsWithData.length===0
