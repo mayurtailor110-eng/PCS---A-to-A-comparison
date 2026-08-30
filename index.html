@@ -539,25 +539,30 @@ document.getElementById('charts').innerHTML = chartDerate()+chartDC()+chartOvl()
 (function(){
   let tip=document.getElementById('chartTip');
   if(!tip){tip=document.createElement('div');tip.id='chartTip';document.body.appendChild(tip);}
-  const host=document.getElementById('charts');
-  host.addEventListener('mouseover',e=>{
-    const t=e.target.closest('[data-tip]'); if(!t)return;
-    const parts=t.getAttribute('data-tip').split('||');
-    const head=parts[0]||''; const lines=(parts[1]||'').split('|');
-    tip.innerHTML=`<b>${head}</b><br>`+lines.map(l=>`<span class="tv">${l}</span>`).join('<br>');
-    tip.style.opacity='1';
-  });
-  host.addEventListener('mousemove',e=>{
-    if(tip.style.opacity!=='1')return;
-    let x=e.clientX+14, y=e.clientY+14;
-    const r=tip.getBoundingClientRect();
-    if(x+r.width>window.innerWidth-8)x=e.clientX-r.width-14;
-    if(y+r.height>window.innerHeight-8)y=e.clientY-r.height-14;
-    tip.style.left=x+'px'; tip.style.top=y+'px';
-  });
-  host.addEventListener('mouseout',e=>{
-    if(e.target.closest('[data-tip]'))tip.style.opacity='0';
-  });
+  function attach(host){
+    if(!host)return;
+    host.addEventListener('mouseover',e=>{
+      const t=e.target.closest('[data-tip]'); if(!t)return;
+      const parts=t.getAttribute('data-tip').split('||');
+      const head=parts[0]||''; const lines=(parts[1]||'').split('|');
+      tip.innerHTML=`<b>${head}</b><br>`+lines.map(l=>`<span class="tv">${l}</span>`).join('<br>');
+      tip.style.opacity='1';
+    });
+    host.addEventListener('mousemove',e=>{
+      if(tip.style.opacity!=='1')return;
+      let x=e.clientX+14, y=e.clientY+14;
+      const r=tip.getBoundingClientRect();
+      if(x+r.width>window.innerWidth-8)x=e.clientX-r.width-14;
+      if(y+r.height>window.innerHeight-8)y=e.clientY-r.height-14;
+      tip.style.left=x+'px'; tip.style.top=y+'px';
+    });
+    host.addEventListener('mouseout',e=>{
+      if(e.target.closest('[data-tip]'))tip.style.opacity='0';
+    });
+  }
+  attach(document.getElementById('charts'));
+  attach(document.getElementById('curves'));
+  attach(document.getElementById('auxchart'));
 })();
 
 // ===== DETAILED PERFORMANCE CURVES =====
@@ -593,16 +598,36 @@ document.getElementById('charts').innerHTML = chartDerate()+chartDC()+chartOvl()
     for(let i=0;i<=4;i++){const yv=yd[0]+(yd[1]-yd[0])*i/4;
       g+=`<line class="grid-l" x1="${pad.l}" y1="${Y(yv)}" x2="${W-pad.r}" y2="${Y(yv)}"/><text class="axlbl" x="${pad.l-6}" y="${Y(yv)+3}" text-anchor="end">${Math.round(yv*10)/10}</text>`;}
     let paths='';
+    // draw lines (for vendors with >1 point) + hit-areas
     Object.keys(byV).forEach(key=>{
       const pts=byV[key].sort((a,b)=>a[0]-b[0]); const col=VCOL[pts[0][2]]||"#888";
       const rng=`${pts[0][1]}–${pts[pts.length-1][1]}`;
       if(pts.length>1){
         const d=pts.map((p,i)=>(i?'L':'M')+X(p[0])+' '+Y(p[1])).join(' ');
         paths+=`<path d="${d}" fill="none" stroke="${col}" stroke-width="2" opacity=".85"/>`;
-        // invisible thick hit-line so hovering anywhere on the line shows the tooltip
         paths+=`<path d="${d}" fill="none" stroke="transparent" stroke-width="14" data-tip="${key}||${yLabel} range: ${rng}|${pts.length} points"/>`;
       }
-      pts.forEach(p=>{paths+=`<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="3.5" fill="${col}" data-tip="${key}||${xLabel}: ${p[0]}|${yLabel}: ${p[1]}"/>`;});
+    });
+    // dots: group by rounded screen position so overlapping vendors share one tooltip
+    const spots={};
+    Object.keys(byV).forEach(key=>{
+      byV[key].forEach(p=>{
+        const sx=Math.round(X(p[0])), sy=Math.round(Y(p[1]));
+        const k=sx+","+sy; (spots[k]=spots[k]||[]).push({key,vendor:p[2],x:p[0],y:p[1],col:VCOL[p[2]]||"#888"});
+      });
+    });
+    Object.keys(spots).forEach(k=>{
+      const [sx,sy]=k.split(",").map(Number); const grp=spots[k];
+      const col=grp[0].col;
+      if(grp.length===1){
+        const p=grp[0];
+        paths+=`<circle cx="${sx}" cy="${sy}" r="3.5" fill="${col}" data-tip="${p.key}||${xLabel}: ${p.x}|${yLabel}: ${p.y}"/>`;
+      } else {
+        // overlapping: one dot, tooltip lists every vendor stacked here, plus a count badge
+        const list=grp.map(p=>p.vendor+": "+p.y).join("|");
+        paths+=`<circle cx="${sx}" cy="${sy}" r="5" fill="#14532d" stroke="#fff" stroke-width="1.5" data-tip="${grp.length} vendors at ${xLabel} ${grp[0].x}||${list}"/>`;
+        paths+=`<text x="${sx+7}" y="${sy-5}" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#14532d;font-weight:700">×${grp.length}</text>`;
+      }
     });
     const empty = vendorsWithData.length===0
       ? `<text x="${W/2}" y="${H/2}" text-anchor="middle" class="nodata">Awaiting vendor data</text>` : '';
