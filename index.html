@@ -163,8 +163,23 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
   </div>
 </section>
 
+<section id="s6">
+  <div class="snum">04</div><h2>Detailed performance curves <span style="font-weight:400;font-size:13px;color:#6b6a5c">· populated as vendors return filled data sheets</span></h2>
+  <div class="charts" id="curves"></div>
+</section>
+
+<section id="s7">
+  <div class="snum">05</div><h2>Auxiliary power consumption <span style="font-weight:400;font-size:13px;color:#6b6a5c">· lower is better — directly affects round-trip efficiency &amp; opex</span></h2>
+  <div id="auxchart"></div>
+</section>
+
+<section id="s8">
+  <div class="snum">06</div><h2>Test certificate coverage <span style="font-weight:400;font-size:13px;color:#6b6a5c">· independent compliance evidence held per standard</span></h2>
+  <div class="tblwrap"><table id="certtable"></table></div>
+</section>
+
 <section id="s5">
-  <div class="snum">04</div><h2>Parameter matrix <span style="font-weight:400;font-size:13px;color:#6b6a5c">· best value per row highlighted</span></h2>
+  <div class="snum">07</div><h2>Parameter matrix <span style="font-weight:400;font-size:13px;color:#6b6a5c">· best value per row highlighted</span></h2>
   <div class="controls">
     <span class="lbl">Filter</span>
     <button class="chip on" data-f="all">All</button>
@@ -172,11 +187,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
     <button class="chip" data-f="scored">Scored params</button>
   </div>
   <div class="tblwrap"><table id="matrix"><thead id="mhead"></thead><tbody id="mbody"></tbody></table></div>
-</section>
-
-<section id="s6">
-  <div class="snum">05</div><h2>Detailed performance curves <span style="font-weight:400;font-size:13px;color:#6b6a5c">· populated as vendors return filled data sheets</span></h2>
-  <div class="charts" id="curves"></div>
 </section>
 
 </div>
@@ -195,8 +205,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 <script>
 
 // ===== DATA LAYER (CSV-driven) =====
-const STATIC = {"vendors": ["Hopewind", "Hoymiles", "Sineng", "FIMER", "Inovance"], "models": {"Hopewind": "Central PCS (2.5 MW class)", "Hoymiles": "HPCS2500-E-S", "Sineng": "EH-1250-HC-UD / EH-1725-HB-UD", "FIMER": "PVS980-58BC (2500 kVA)", "Inovance": "IES920-07-2500-C-D-EU"}, "weights": {"eff": 20, "temp": 15, "gfm": 15, "ovl": 10, "rel": 10, "grid": 10, "cool": 8, "warr": 7, "comm": 5}};
-const WLABEL={eff:"Efficiency",temp:"High-temp full power",gfm:"Grid-forming / inertia",ovl:"Overload capability",rel:"Reliability (MTBF/MTTR)",grid:"Grid-code compliance",cool:"Cooling & environment",warr:"Warranty & service",comm:"Communication"};
+const STATIC = {"vendors": ["Hopewind", "Hoymiles", "Sineng", "FIMER", "Inovance"], "models": {"Hopewind": "Central PCS (2.5 MW class)", "Hoymiles": "HPCS2500-E-S", "Sineng": "EH-1250-HC-UD / EH-1725-HB-UD", "FIMER": "PVS980-58BC (2500 kVA)", "Inovance": "IES920-07-2500-C-D-EU"}, "weights": {"eff": 18, "temp": 14, "gfm": 13, "ovl": 9, "rel": 8, "grid": 9, "cool": 6, "warr": 5, "comm": 4, "aux": 7, "certs": 7}};
+// new scored factors from the aux-consumption and test-certificate tabs
+const FACTORS={"aux":{"Hopewind":3.85,"Hoymiles":102.72,"Delta":null,"FIMER":null,"Newen":null,"Sineng":null,"Inovance":null,"ENERZOLVE":null},"certs":{"Hopewind":9,"Hoymiles":7,"Delta":0,"FIMER":0,"Newen":6,"Sineng":9,"Inovance":0,"ENERZOLVE":0}};
+const WLABEL={eff:"Efficiency",temp:"High-temp full power",gfm:"Grid-forming / inertia",ovl:"Overload capability",rel:"Reliability (MTBF/MTTR)",grid:"Grid-code compliance",cool:"Cooling & environment",warr:"Warranty & service",comm:"Communication",aux:"Auxiliary consumption",certs:"Test certificates"};
 
 function parseCSV(text){
   const rows=[]; let i=0,f='',row=[],q=false;
@@ -211,7 +223,7 @@ function parseCSV(text){
   return rows;
 }
 
-const GAPRE=/^$|not specified|will s|will be shared|on order|confidential|kindly|receipt of order|discussed during commercial/i;
+const GAPRE=/^$|^na$|^n\/a$|^-$|not specified|will s|will be shared|on order|confidential|kindly|receipt of order|discussed during commercial|^tbc|to be confirmed|simulation data|nov-20|available for nov/i;
 const NEGRE=/^(na|n\/a|not available|not applicable|no\b|no redundancy|no seamless)/i;
 const POSRE=/compl|^yes|standard|available|seamless|four quadrant|mandatory/i;
 const isGap=t=>GAPRE.test((t||"").trim());
@@ -248,6 +260,11 @@ function scoreVendor(v, get){
   s.warr=(w.includes("20 year"))?1.0:((w.includes("5 year"))?0.6:(isGap(w)?0:0.4)); if(isGap(w))g++;
   // comms
   const cm=[get(36),get(37),get(91)]; s.comm=cm.filter(x=>isPos(x)||/modbus|iec 61850/i.test(x||"")).length/cm.length;
+  // aux consumption (lower kW = better; best≈3.85, worst≈103). missing = 0 + gap.
+  const ax=FACTORS.aux[v];
+  if(ax==null){s.aux=0; g++;} else {s.aux=Math.max(0,Math.min(1,(103-ax)/(103-3.85)));}
+  // test certificates (of 12)
+  const ct=FACTORS.certs[v]; s.certs=(ct==null)?0:ct/12; if(!ct)g++;
   return {s,g};
 }
 
@@ -257,7 +274,7 @@ async function loadData(){
     fetch('chart_points.csv').then(r=>r.text())
   ]);
   // detailed curve files — optional; if missing, those charts show "awaiting data"
-  const curveFiles=["curve_efficiency.csv","curve_pq.csv","curve_temp_derate.csv","curve_voltage_derate.csv","curve_lvrt_hvrt.csv"];
+  const curveFiles=["curve_efficiency.csv","curve_pq.csv","curve_temp_derate.csv","curve_voltage_derate.csv","curve_lvrt_hvrt.csv","curve_aux.csv","curve_certs.csv"];
   const curveTexts=await Promise.all(curveFiles.map(f=>fetch(f).then(r=>r.ok?r.text():"").catch(()=>"")));
   const CURVES=Object.fromEntries(curveFiles.map((f,i)=>[f, curveTexts[i]?parseCSV(curveTexts[i]):[]]));
   const drows=parseCSV(dtxt), head=drows[0], rawV=head.slice(4);
@@ -594,6 +611,46 @@ document.getElementById('charts').innerHTML = chartDerate()+chartDC()+chartOvl()
      "time_ms","voltage_pu","Time ms","V p.u.",[0,1000],[0,1.2]);
 
   host.innerHTML=html;
+})();
+
+// ===== AUXILIARY CONSUMPTION CHART =====
+(function(){
+  const host=document.getElementById('auxchart'); if(!host)return;
+  const t=CURVES["curve_aux.csv"]; if(!t||!t.length){host.innerHTML='<p style="color:#8a6d3b;font-family:monospace">Awaiting data</p>';return;}
+  const head=t[0], rows=t.slice(1).map(r=>({vendor:r[0],kw:parseFloat(r[1])})).filter(r=>!isNaN(r.kw));
+  if(!rows.length){host.innerHTML='<p style="color:#8a6d3b;font-family:monospace;padding:20px">Only 2 vendors have submitted auxiliary consumption data so far — awaiting the rest.</p>';return;}
+  rows.sort((a,b)=>a.kw-b.kw);
+  const W=760,H=60+rows.length*34,pad={l:120,r:80,t:10,b:20};
+  const max=Math.max(...rows.map(r=>r.kw))*1.1;
+  const X=v=>pad.l+v/max*(W-pad.l-pad.r);
+  let bars='';
+  rows.forEach((r,i)=>{
+    const y=pad.t+i*34, col=VCOL[r.vendor]||"#888";
+    bars+=`<text x="${pad.l-10}" y="${y+18}" text-anchor="end" style="font-family:Arial;font-size:13px;font-weight:600;fill:#14532d">${r.vendor}</text>`;
+    bars+=`<rect x="${pad.l}" y="${y+5}" width="${Math.max(X(r.kw)-pad.l,2)}" height="22" fill="${col}" opacity=".85" rx="2"/>`;
+    bars+=`<text x="${X(r.kw)+6}" y="${y+21}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;fill:#4a4940">${r.kw} kW</text>`;
+  });
+  const note = rows.length<D.vendors.length ? `<p style="color:#8a6d3b;font-family:monospace;font-size:12px;margin:8px 0 0">${D.vendors.length-rows.length} vendor(s) have not submitted auxiliary consumption — shown as data gaps in scoring.</p>` : '';
+  host.innerHTML=`<div class="chart" style="max-width:800px"><svg viewBox="0 0 ${W} ${H}" style="width:100%">${bars}</svg></div>${note}`;
+})();
+
+// ===== TEST CERTIFICATE MATRIX =====
+(function(){
+  const el=document.getElementById('certtable'); if(!el)return;
+  const t=CURVES["curve_certs.csv"]; if(!t||!t.length){el.innerHTML='<tr><td>Awaiting data</td></tr>';return;}
+  const head=t[0], rows=t.slice(1);
+  const shortStd=s=>s.replace(/IEC-|IEEE-|CEA-/,'');
+  let html=`<thead><tr><th>Vendor</th>`+head.slice(1).map(s=>`<th style="font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);height:70px">${s}</th>`).join('')+`<th>Total</th></tr></thead><tbody>`;
+  const counts=rows.map(r=>({v:r[0],n:r.slice(1).filter(c=>String(c).trim().toLowerCase()==='yes').length,cells:r.slice(1)}));
+  counts.sort((a,b)=>b.n-a.n);
+  counts.forEach(r=>{
+    html+=`<tr><td class="param">${r.v}</td>`+r.cells.map(c=>{
+      const yes=String(c).trim().toLowerCase()==='yes';
+      return `<td style="text-align:center;background:${yes?'#eaf6ee':'#fbeaea'};color:${yes?'#1f7a3d':'#b23b3b'};font-weight:700">${yes?'✓':'—'}</td>`;
+    }).join('')+`<td style="text-align:center;font-family:monospace;font-weight:700;color:#14532d">${r.n}/12</td></tr>`;
+  });
+  html+=`</tbody>`;
+  el.innerHTML=html;
 })();
 
 }).catch(e=>{document.body.insertAdjacentHTML("afterbegin",'<div style="background:#b23b3b;color:#fff;padding:14px;font-family:monospace">Could not load data.csv / chart_points.csv — make sure both files sit next to index.html in the repo. '+e+'</div>');});
