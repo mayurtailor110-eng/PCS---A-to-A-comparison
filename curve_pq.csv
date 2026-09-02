@@ -1,11 +1,7 @@
 vendor,p_pct,q_lead_pct,q_lag_pct
-Hoymiles,0,100,100
-Hoymiles,100,0,0
-Sineng,0,100,100
-Sineng,100,0,0
-Delta,0,100,100
-Delta,100,0,0
-Newen,0,100,100
-Newen,100,0,0
-Hopewind,0,100,100
-Hopewind,100,0,0
+Hoymiles,2500,2500,-2500
+Sineng,1300,1300,-1300
+Delta,1250,1250,-1250
+Newen,2749,2749,-2749
+Hopewind,2500,2500,-2500
+Inovance,2500,2470,-2470
