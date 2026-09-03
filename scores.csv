@@ -1,0 +1,12 @@
+category,label,what_it_measures,rubric_0_25_50_75_100,Hopewind,Hoymiles,Delta,FIMER,Newen,Sineng,Inovance,ENERZOLVE
+eff,Efficiency,Peak/CEC efficiency %,0=none · 25=<98.5% · 50=98.5% · 75=98.8% · 100=≥99%,50,100,100,75,100,100,100,50
+temp,High-temp full power,Ambient °C at which full power holds,0=none · 25=to 40°C · 50=to 45°C · 75=to 50°C · 100=to 55°C+,,,,,,,,
+gfm,Grid-forming / inertia,"True GFM/VSG capability, delivered not promised",0=none · 25=roadmap only · 50=simulation/partial · 75=supported · 100=proven+tested,,,,,,,,
+ovl,Overload capability,% and duration of overload,0=none · 25=110%/10s · 50=120%/10s · 75=120%/1min · 100=150%+,,,,,,,,
+rel,Reliability (MTBF/MTTR),"Documented MTBF, MTTR, derating data",0=none · 25=partial · 50=basic · 75=good · 100=full+strong,,,,,,,,
+grid,Grid-code compliance,CEA/IEC LVRT/HVRT/FRT evidence,0=none · 25=claimed · 50=partial docs · 75=most codes · 100=full CEA+IEC,,,,,,,,
+cool,Cooling & environment,Cooling method + IP/robustness,0=none · 25=basic air · 50=air-forced · 75=air-liquid · 100=liquid/2-phase,,,,,,,,
+warr,Warranty & service,Standard + extension + local support,0=none · 25=<5yr · 50=5yr · 75=5yr+local · 100=long+strong India support,,,,,,,,
+comm,Communication,Protocol coverage (Modbus/IEC61850/DNP3),0=none · 25=1 protocol · 50=2 · 75=3 · 100=full+SCADA,,,,,,,,
+aux,Auxiliary consumption,Aux power draw kW (lower better),0=none · 25=>50kW · 50=20-50kW · 75=5-20kW · 100=<5kW,100,25,,,,,,
+certs,Test certificates,Independent certs held /12,0=0 · 25=1-2 · 50=3-5 · 75=6-8 · 100=9+,100,75,0,0,75,100,0,0
