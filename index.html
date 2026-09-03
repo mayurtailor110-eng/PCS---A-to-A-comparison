@@ -59,6 +59,10 @@ h2{font-size:21px;margin:4px 0 20px;font-weight:700;color:var(--green-d)}
 .cbar{height:5px;background:#e6e2d3;margin-top:1px;position:relative;overflow:hidden}
 .cbar>i{position:absolute;left:0;top:0;bottom:0}
 .prov{font-family:"IBM Plex Mono",Menlo,monospace;font-size:10px;color:#c07a1e;margin-top:4px}
+.pc{margin-top:10px;border-top:1px solid var(--line);padding-top:8px;font-size:11px;line-height:1.4}
+.pc-h{display:block;font-family:"IBM Plex Mono",Menlo,monospace;font-size:10px;letter-spacing:.05em;margin-bottom:2px}
+.pc-pro{margin-bottom:6px} .pc-pro .pc-h{color:var(--green)} .pc-pro div{color:#3a5a44}
+.pc-con .pc-h{color:var(--red)} .pc-con div{color:#7a4a4a}
 
 /* weights */
 .wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 26px}
@@ -182,11 +186,22 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 
 <section id="s8">
   <div class="snum">06</div><h2>Test certificate coverage <span style="font-weight:400;font-size:13px;color:#6b6a5c">· independent compliance evidence held per standard</span></h2>
-  <div class="tblwrap"><table id="certtable"></table></div>
+  <div id="certchart"></div>
+  <div class="tblwrap" style="margin-top:18px"><table id="certtable"></table></div>
+</section>
+
+<section id="s9">
+  <div class="snum">07</div><h2>Grid-support compliance <span style="font-weight:400;font-size:13px;color:#6b6a5c">· Complied = real data supplied · Not Complied = TBC / simulation / not submitted</span></h2>
+  <div id="compliance"></div>
 </section>
 
 <section id="s5">
-  <div class="snum">07</div><h2>Parameter matrix <span style="font-weight:400;font-size:13px;color:#6b6a5c">· best value per row highlighted</span></h2>
+  <div class="snum">08</div>
+  <h2 class="collapse-h" id="matrixToggle" style="cursor:pointer;user-select:none">
+    <span id="matrixArrow" style="display:inline-block;transition:transform .2s;font-size:15px">▶</span>
+    Parameter matrix <span style="font-weight:400;font-size:13px;color:#6b6a5c">· click to expand · full 92-parameter detail</span>
+  </h2>
+  <div id="matrixWrap" style="display:none">
   <div class="controls">
     <span class="lbl">Filter</span>
     <button class="chip on" data-f="all">All</button>
@@ -194,6 +209,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
     <button class="chip" data-f="scored">Scored params</button>
   </div>
   <div class="tblwrap"><table id="matrix"><thead id="mhead"></thead><tbody id="mbody"></tbody></table></div>
+  </div>
 </section>
 
 </div>
@@ -311,7 +327,7 @@ async function loadData(){
     fetch('chart_points.csv').then(r=>r.text())
   ]);
   // detailed curve files — optional; if missing, those charts show "awaiting data"
-  const curveFiles=["curve_efficiency.csv","curve_pq.csv","curve_temp_derate.csv","curve_voltage_derate.csv","curve_lvrt_hvrt.csv","curve_aux.csv","curve_certs.csv"];
+  const curveFiles=["curve_efficiency.csv","curve_pq.csv","curve_temp_derate.csv","curve_voltage_derate.csv","curve_lvrt_hvrt.csv","curve_aux.csv","curve_certs.csv","scores.csv"];
   const curveTexts=await Promise.all(curveFiles.map(f=>fetch(f).then(r=>r.ok?r.text():"").catch(()=>"")));
   const CURVES=Object.fromEntries(curveFiles.map((f,i)=>[f, curveTexts[i]?parseCSV(curveTexts[i]):[]]));
   const drows=parseCSV(dtxt), head=drows[0], rawV=head.slice(4);
@@ -329,14 +345,57 @@ async function loadData(){
   }));
   const getFor=v=>no=>{const p=params.find(p=>String(p.no)===String(no));return p?p.vals[v]:"";};
 
-  const scores={},composite={},tiers={},gaps={},disp={},completeness={};
+  // ---- MANUAL SCORING: read scores.csv (0/25/50/75/100 per category per vendor) ----
+  // Format: category,label,measures,rubric,<one column per vendor>
+  const srows = CURVES["scores.csv"]||[];
+  const W=STATIC.weights;
+  const catInfo={}; // key -> {label, filled per vendor}
+  const manual={};  // vendor -> {cat: 0..1 or undefined if blank}
+  V.forEach(v=>manual[v]={});
+  if(srows.length){
+    const shead=srows[0]; const vCols=shead.slice(4).map(x=>x.split("\n")[0].trim());
+    srows.slice(1).forEach(r=>{
+      const key=r[0]; if(!key||!W[key])return;
+      catInfo[key]=r[1]||key;
+      vCols.forEach((vn,i)=>{
+        if(!(vn in manual))return;
+        const raw=(r[4+i]||"").trim();
+        if(raw!=="" && !isNaN(+raw)) manual[vn][key]=Math.max(0,Math.min(1,(+raw)/100));
+      });
+    });
+  }
+
+  const scores={},composite={},tiers={},gaps={},disp={},completeness={},proscons={};
+  const totalW=Object.values(W).reduce((a,b)=>a+b,0);
+  // grid-support compliance is read straight from the matrix params (no separate file)
+  const CMP_BAD=/^$|^na$|^n\/a$|^-$|^none$|^tbc$|to be confirmed|not specified/i;
+  const cmpOK=(val)=>{ if(val==null)return false; const t=String(val).trim(); if(CMP_BAD.test(t))return false;
+    return /compl|yes|support|four quadrant|frt|lvrt|hvrt|droop|reactive|kvar|ramp|configurable|current feed|power reduction/i.test(t)||t.length>3; };
+  const CMP_ITEMS=[["LVRT/HVRT",[50]],["Fault ride-through",[53]],["Frequency droop",[51,55]],["Ramp-rate control",[56,76]]];
+  const getPvals=(no)=>{const p=params.find(p=>String(p.no)===String(no));return p?p.vals:null;};
+  const CATLABEL={eff:"efficiency",temp:"high-temp output",gfm:"grid-forming",ovl:"overload",rel:"reliability data",grid:"grid-code compliance",cool:"cooling design",warr:"warranty & support",comm:"communications",aux:"low auxiliary draw",certs:"test certificates"};
   V.forEach(v=>{
-    const r=scoreVendor(v,getFor(v)); scores[v]=r.s;
-    // tier is now based on QUALITY (over answered categories), not diluted by missing data
-    composite[v]=r.quality;
-    tiers[v]=r.quality>=70?"T1":(r.quality>=52?"T2":"T3");
-    completeness[v]=r.completeness;
+    const s={}; let answeredW=0, qNum=0, blanks=0;
+    Object.keys(W).forEach(k=>{
+      const val=manual[v][k];
+      if(val===undefined){ s[k]=0; blanks++; }
+      else { s[k]=val; answeredW+=W[k]; qNum+=val*W[k]; }
+    });
+    scores[v]=s;
+    const quality = answeredW? Math.round((qNum/answeredW)*1000)/10 : 0;
+    composite[v]=quality;
+    tiers[v]= quality>=70?"T1":(quality>=52?"T2":"T3");
+    completeness[v]= Math.round(answeredW/totalW*100);
     disp[v]=params.filter(p=>isGap(p.vals[v])).length;
+    // ---- auto pros & cons: strongest & weakest ANSWERED categories, weighted ----
+    const answered=Object.keys(W).filter(k=>manual[v][k]!==undefined);
+    const ranked=answered.map(k=>({k,impact:s[k]*W[k],score:s[k]})).sort((a,b)=>b.score-a.score||b.impact-a.impact);
+    const pros=ranked.filter(x=>x.score>=0.75).slice(0,3).map(x=>"Strong "+CATLABEL[x.k]);
+    const cons=ranked.filter(x=>x.score<=0.5).reverse().slice(0,3).map(x=>"Weak "+CATLABEL[x.k]);
+    // compliance-based cons, read from the matrix
+    CMP_ITEMS.forEach(([label,nos])=>{ const ok=nos.some(n=>{const r=getPvals(n);return r&&cmpOK(r[v]);}); if(!ok)cons.push(label+" not complied"); });
+    if(completeness[v]<60) cons.unshift("Limited data submitted ("+completeness[v]+"%)");
+    proscons[v]={pros:pros.length?pros:["No standout strengths yet"],cons:cons.length?cons:["No major gaps flagged"]};
   });
 
   // charts from chart_points.csv
@@ -351,7 +410,7 @@ async function loadData(){
     else if(ch==="eff_euro")CH.eff[v][1]=(y===""?null:+y);
   });
 
-  return {D:{vendors:V,models:MODELS,weights:STATIC.weights,params,scores,composite,tiers,disp_gaps:disp,completeness},CH,CURVES};
+  return {D:{vendors:V,models:MODELS,weights:STATIC.weights,params,scores,composite,tiers,disp_gaps:disp,completeness,proscons},CH,CURVES};
 }
 
 loadData().then(({D,CH,CURVES})=>{
@@ -391,6 +450,10 @@ document.getElementById('tiers').innerHTML = order.map((v,i)=>{
     <div class="cbar"><i style="width:0;background:${compColor}" data-w="${comp}%"></i></div>
     ${prov}
     <div class="gapline">${DG[v]} data gap${DG[v]==1?'':'s'}</div>
+    <div class="pc">
+      <div class="pc-pro"><span class="pc-h">▲ Pros</span>${(D.proscons[v].pros).map(x=>`<div>${x}</div>`).join('')}</div>
+      <div class="pc-con"><span class="pc-h">▼ Cons</span>${(D.proscons[v].cons).map(x=>`<div>${x}</div>`).join('')}</div>
+    </div>
   </div>`;
 }).join('');
 requestAnimationFrame(()=>document.querySelectorAll('.bar>i,.cbar>i').forEach(el=>el.style.width=el.dataset.w));
@@ -607,6 +670,7 @@ document.getElementById('charts').innerHTML = chartDerate()+chartDC()+chartOvl()
   attach(document.getElementById('charts'));
   attach(document.getElementById('curves'));
   attach(document.getElementById('auxchart'));
+  attach(document.getElementById('certchart'));
 })();
 
 // ===== DETAILED PERFORMANCE CURVES =====
@@ -700,9 +764,6 @@ document.getElementById('charts').innerHTML = chartDerate()+chartDC()+chartOvl()
   // 4 PQ envelope (discharge lagging)
   html+=lineChart("PQ capability (discharge)","Q lagging % vs active power %",rowsOf("curve_pq.csv"),
      "p_pct","q_lag_pct","P %","Q lag %",[0,100],[0,60]);
-  // 5 LVRT profile
-  html+=lineChart("LVRT ride-through","grid voltage p.u. vs time (ms)",rowsOf("curve_lvrt_hvrt.csv").filter(r=>r.type==="LVRT"),
-     "time_ms","voltage_pu","Time ms","V p.u.",[0,1000],[0,1.2]);
 
   host.innerHTML=html;
 })();
@@ -745,6 +806,66 @@ document.getElementById('charts').innerHTML = chartDerate()+chartDC()+chartOvl()
   });
   html+=`</tbody>`;
   el.innerHTML=html;
+})();
+
+// ===== TEST CERTIFICATE BAR CHART (change 3) =====
+(function(){
+  const host=document.getElementById('certchart'); if(!host)return;
+  const t=CURVES["curve_certs.csv"]; if(!t||!t.length)return;
+  const rows=t.slice(1).map(r=>({v:r[0].trim(),n:r.slice(1).filter(c=>String(c).trim().toLowerCase()==='yes').length}));
+  rows.sort((a,b)=>b.n-a.n);
+  const W=760,H=40+rows.length*30,pad={l:110,r:60,t:8,b:16},max=12;
+  const X=v=>pad.l+v/max*(W-pad.l-pad.r);
+  let bars='';
+  rows.forEach((r,i)=>{
+    const y=pad.t+i*30, col=VCOL[r.v]||"#888", pct=r.n/max;
+    const barColor = r.n>=9?'#1f7a3d':r.n>=6?'#c07a1e':r.n>=1?'#c9a227':'#b23b3b';
+    bars+=`<text x="${pad.l-10}" y="${y+16}" text-anchor="end" style="font-family:Arial;font-size:13px;font-weight:600;fill:#14532d">${r.v}</text>`;
+    bars+=`<rect x="${pad.l}" y="${y+3}" width="${W-pad.l-pad.r}" height="20" fill="#e6e2d3" rx="2"/>`;
+    bars+=`<rect x="${pad.l}" y="${y+3}" width="${Math.max(X(r.n)-pad.l,2)}" height="20" fill="${barColor}" rx="2" data-tip="${r.v}||${r.n} of 12 certificates held"/>`;
+    bars+=`<text x="${X(r.n)+6}" y="${y+18}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;fill:#4a4940">${r.n}/12</text>`;
+  });
+  host.innerHTML=`<div class="chart" style="max-width:800px"><div class="sub" style="margin-bottom:6px">certificates held out of 12 tracked standards</div><svg viewBox="0 0 ${W} ${H}" style="width:100%">${bars}</svg></div>`;
+})();
+
+// ===== GRID-SUPPORT COMPLIANCE MATRIX (read directly from the matrix params) =====
+(function(){
+  const el=document.getElementById('compliance'); if(!el)return;
+  const vendors=D.vendors;
+  // map display item -> the matrix parameter number(s) it's judged from
+  const ITEMS=[
+    ["LVRT / HVRT",[50]],
+    ["Fault ride-through (FRT)",[53]],
+    ["Frequency response / droop",[51,55]],
+    ["Ramp-rate control",[56,76]],
+    ["Reactive power support",[54]],
+    ["Anti-islanding",[71]],
+    ["Over / under frequency",[69]],
+  ];
+  const getP=(no)=>{const p=D.params.find(p=>String(p.no)===String(no));return p?p.vals:null;};
+  const BAD=/^$|^na$|^n\/a$|^-$|^none$|^tbc$|to be confirmed|not specified/i;
+  const complied=(val)=>{ if(val==null)return false; const s=String(val).trim(); if(BAD.test(s))return false;
+    return /compl|yes|support|four quadrant|frt|lvrt|hvrt|droop|reactive|kvar|ramp|configurable|current feed|power reduction/i.test(s) || s.length>3; };
+  let html=`<div class="tblwrap"><table><thead><tr><th>Grid-support function</th>`+vendors.map(v=>`<th style="text-align:center">${v}</th>`).join('')+`</tr></thead><tbody>`;
+  ITEMS.forEach(([item,nos])=>{
+    html+=`<tr><td class="param">${item}</td>`+vendors.map(v=>{
+      const ok=nos.some(n=>{const row=getP(n);return row&&complied(row[v]);});
+      return `<td style="text-align:center;background:${ok?'#eaf6ee':'#fbeaea'};color:${ok?'#1f7a3d':'#b23b3b'};font-weight:700;white-space:nowrap">${ok?'✓ Complied':'✗ Not complied'}</td>`;
+    }).join('')+`</tr>`;
+  });
+  html+=`</tbody></table></div>`;
+  el.innerHTML=html;
+})();
+
+// ===== PARAMETER MATRIX COLLAPSE (change 1) =====
+(function(){
+  const tog=document.getElementById('matrixToggle'), wrap=document.getElementById('matrixWrap'), arr=document.getElementById('matrixArrow');
+  if(!tog||!wrap)return;
+  tog.addEventListener('click',()=>{
+    const open=wrap.style.display!=='none';
+    wrap.style.display=open?'none':'block';
+    arr.style.transform=open?'rotate(0deg)':'rotate(90deg)';
+  });
 })();
 
 }).catch(e=>{document.body.insertAdjacentHTML("afterbegin",'<div style="background:#b23b3b;color:#fff;padding:14px;font-family:monospace">Could not load data.csv / chart_points.csv — make sure both files sit next to index.html in the repo. '+e+'</div>');});
