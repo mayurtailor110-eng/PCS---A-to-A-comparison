@@ -4,7 +4,7 @@ section,no,parameter,requirement,Hopewind,Hoymiles,Delta,"FIMER
 (EH-1250-HC-UD / EH-1725-HB-UD)","Inovance
 (IES920-07-2500-C-D-EU)",ENERZOLVE,"Sifang
 (CSD-5831, 2500 kVA)"
-Performance Envelope,1,Peak efficiency,≥ 99.0 %,98.5,99,99,98.8,99.21,99,99,98.5,>98.8%
+Performance Envelope,1,Peak efficiency,≥ 99.0 %,98.5,99,99,98.8,99.21,99,99,98.5,98.8%
 Performance Envelope,2,Euro / CEC efficiency,≥ 98.5 %,NA,98.5,98.5,98.6,99.03,98,98.3,NA,NA
 Performance Envelope,3,Power factor range,0.9 lead – 0.89 lag,-1 to +1,-1 to +1,~-0.89 to +0.9,-1 to +1,-1 to +1,-1 to +1,~-0.89 to +0.9,-1 to +1,-1 to +1
 Performance Envelope,4,Response time (P/Q),< 50 ms,30,50,150,NA,50,50,50,NA,≤20 ms
