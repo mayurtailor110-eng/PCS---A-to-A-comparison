@@ -149,8 +149,56 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
   <div class="charts" id="charts"></div>
 </section>
 
+<section id="s6">
+  <div class="snum">03</div><h2>Detailed performance curves <span style="font-weight:400;font-size:13px;color:#6b6a5c">· populated as vendors return filled data sheets</span></h2>
+  <div class="charts" id="curves"></div>
+</section>
+
+<section id="s7">
+  <div class="snum">04</div><h2>Auxiliary power consumption <span style="font-weight:400;font-size:13px;color:#6b6a5c">· lower is better — directly affects round-trip efficiency &amp; opex</span></h2>
+  <div id="auxchart"></div>
+</section>
+
+<section id="s8">
+  <div class="snum">05</div><h2>Test certificate coverage <span style="font-weight:400;font-size:13px;color:#6b6a5c">· independent compliance evidence held per standard</span></h2>
+  <div id="certchart"></div>
+  <div class="tblwrap" style="margin-top:18px"><table id="certtable"></table></div>
+</section>
+
+<section id="s9">
+  <div class="snum">06</div><h2>Grid-support compliance <span style="font-weight:400;font-size:13px;color:#6b6a5c">· Complied = real data supplied · Not Complied = TBC / simulation / not submitted</span></h2>
+  <div id="compliance"></div>
+</section>
+
+<section id="s10">
+  <div class="snum">07</div><h2>IGBT power module <span style="font-weight:400;font-size:13px;color:#6b6a5c">· make, module type &amp; failure rate (FIT — lower is better)</span></h2>
+  <div class="tblwrap"><table id="igbtinfo"></table></div>
+</section>
+
+<section id="s11">
+  <div class="snum">08</div><h2>IGBT temperature vs performance <span style="font-weight:400;font-size:13px;color:#6b6a5c">· % current capability vs junction temperature</span></h2>
+  <div class="charts" id="igbtcurve"></div>
+</section>
+
+<section id="s5">
+  <div class="snum">09</div>
+  <h2 class="collapse-h" id="matrixToggle" style="cursor:pointer;user-select:none">
+    <span id="matrixArrow" style="display:inline-block;transition:transform .2s;font-size:15px">▶</span>
+    Parameter matrix <span style="font-weight:400;font-size:13px;color:#6b6a5c">· click to expand · full 92-parameter detail</span>
+  </h2>
+  <div id="matrixWrap" style="display:none">
+  <div class="controls">
+    <span class="lbl">Filter</span>
+    <button class="chip on" data-f="all">All</button>
+    <button class="chip" data-f="gaps">Gaps only</button>
+    <button class="chip" data-f="scored">Scored params</button>
+  </div>
+  <div class="tblwrap"><table id="matrix"><thead id="mhead"></thead><tbody id="mbody"></tbody></table></div>
+  </div>
+</section>
+
 <section id="s4">
-  <div class="snum">03</div><h2>How the tiers are decided · automated</h2>
+  <div class="snum">10</div><h2>How the tiers are decided · automated</h2>
   <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:40px" class="splitgrid">
     <div>
       <div class="eyebrow" style="margin-bottom:12px">Scoring weights · industry-standard utility BESS</div>
@@ -173,53 +221,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
   </div>
 </section>
 
-<section id="s6">
-  <div class="snum">04</div><h2>Detailed performance curves <span style="font-weight:400;font-size:13px;color:#6b6a5c">· populated as vendors return filled data sheets</span></h2>
-  <div class="charts" id="curves"></div>
-</section>
 
-<section id="s7">
-  <div class="snum">05</div><h2>Auxiliary power consumption <span style="font-weight:400;font-size:13px;color:#6b6a5c">· lower is better — directly affects round-trip efficiency &amp; opex</span></h2>
-  <div id="auxchart"></div>
-</section>
-
-<section id="s8">
-  <div class="snum">06</div><h2>Test certificate coverage <span style="font-weight:400;font-size:13px;color:#6b6a5c">· independent compliance evidence held per standard</span></h2>
-  <div id="certchart"></div>
-  <div class="tblwrap" style="margin-top:18px"><table id="certtable"></table></div>
-</section>
-
-<section id="s9">
-  <div class="snum">07</div><h2>Grid-support compliance <span style="font-weight:400;font-size:13px;color:#6b6a5c">· Complied = real data supplied · Not Complied = TBC / simulation / not submitted</span></h2>
-  <div id="compliance"></div>
-</section>
-
-<section id="s10">
-  <div class="snum">08</div><h2>IGBT power module <span style="font-weight:400;font-size:13px;color:#6b6a5c">· make, module type &amp; failure rate (FIT — lower is better)</span></h2>
-  <div class="tblwrap"><table id="igbtinfo"></table></div>
-</section>
-
-<section id="s11">
-  <div class="snum">09</div><h2>IGBT temperature vs performance <span style="font-weight:400;font-size:13px;color:#6b6a5c">· % current capability vs junction temperature</span></h2>
-  <div class="charts" id="igbtcurve"></div>
-</section>
-
-<section id="s5">
-  <div class="snum">10</div>
-  <h2 class="collapse-h" id="matrixToggle" style="cursor:pointer;user-select:none">
-    <span id="matrixArrow" style="display:inline-block;transition:transform .2s;font-size:15px">▶</span>
-    Parameter matrix <span style="font-weight:400;font-size:13px;color:#6b6a5c">· click to expand · full 92-parameter detail</span>
-  </h2>
-  <div id="matrixWrap" style="display:none">
-  <div class="controls">
-    <span class="lbl">Filter</span>
-    <button class="chip on" data-f="all">All</button>
-    <button class="chip" data-f="gaps">Gaps only</button>
-    <button class="chip" data-f="scored">Scored params</button>
-  </div>
-  <div class="tblwrap"><table id="matrix"><thead id="mhead"></thead><tbody id="mbody"></tbody></table></div>
-  </div>
-</section>
 
 </div>
 
