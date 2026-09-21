@@ -6,10 +6,10 @@
 <title>PCS Ranking — Apple-to-Apple Comparison</title>
 <style>
 :root{
-  --ink:#0d1f17; --paper:#f5f3ec; --panel:#fffdf7; --line:#d9d5c6;
-  --green:#1f7a3d; --green-d:#14532d; --amber:#c07a1e; --red:#b23b3b;
-  --t1:#1f7a3d; --t2:#c07a1e; --t3:#b23b3b; --flag:#8a6d3b;
-  --best:#eaf6ee; --best-line:#1f7a3d;
+  --ink:#12261a; --paper:#f4f6f3; --panel:#ffffff; --line:#d3d3d3;
+  --green:#3B9B43; --green-d:#1B4D2E; --amber:#c07a1e; --red:#b23b3b;
+  --t1:#3B9B43; --t2:#c07a1e; --t3:#b23b3b; --flag:#6b7a70;
+  --best:#e9f4ea; --best-line:#3B9B43;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -88,7 +88,7 @@ tbody td{padding:8px 12px;border-bottom:1px solid #ece9dc;vertical-align:top}
 tbody td:first-child{font-family:"IBM Plex Mono",Menlo,monospace;color:#9a9686;font-size:11px;width:34px}
 td.param{font-weight:600;color:var(--green-d);width:190px}
 td.req{color:#6b6a5c;font-style:italic;width:150px}
-tr.sec td{background:#eef2ec;font-family:"IBM Plex Mono",Menlo,monospace;font-size:11px;
+tr.sec td{background:#eaf1eb;font-family:"IBM Plex Mono",Menlo,monospace;font-size:11px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--green-d);font-weight:600;padding:7px 12px}
 td.best{background:var(--best);box-shadow:inset 3px 0 0 var(--best-line)}
 .neqflag{color:var(--amber);font-weight:700} .gapflag{color:var(--flag);font-style:italic}
@@ -112,10 +112,10 @@ td.best{background:var(--best);box-shadow:inset 3px 0 0 var(--best-line)}
 .nodata{font-family:"IBM Plex Mono",Menlo,monospace;font-size:10px;fill:#b23b3b}
 .chart svg [data-tip]{cursor:pointer;transition:opacity .12s}
 .chart svg:hover [data-tip]:not(:hover){opacity:.45}
-#chartTip{position:fixed;pointer-events:none;z-index:50;background:#14532d;color:#fff;
+#chartTip{position:fixed;pointer-events:none;z-index:50;background:#1B4D2E;color:#fff;
   font-family:"IBM Plex Mono",Menlo,monospace;font-size:12px;line-height:1.35;padding:7px 10px;
   border-radius:4px;box-shadow:0 4px 14px rgba(0,0,0,.25);opacity:0;transition:opacity .1s;max-width:220px}
-#chartTip b{color:#eaf6ee}
+#chartTip b{color:#e9f4ea}
 #chartTip .tv{color:#fff;font-weight:600}
 @media(max-width:820px){.charts{grid-template-columns:1fr}}
 footer{padding:30px 0 60px;font-size:12px;color:#6b6a5c}
@@ -194,8 +194,18 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
   <div id="compliance"></div>
 </section>
 
+<section id="s10">
+  <div class="snum">08</div><h2>IGBT power module <span style="font-weight:400;font-size:13px;color:#6b6a5c">· make, module type &amp; failure rate (FIT — lower is better)</span></h2>
+  <div class="tblwrap"><table id="igbtinfo"></table></div>
+</section>
+
+<section id="s11">
+  <div class="snum">09</div><h2>IGBT temperature vs performance <span style="font-weight:400;font-size:13px;color:#6b6a5c">· % current capability vs junction temperature</span></h2>
+  <div class="charts" id="igbtcurve"></div>
+</section>
+
 <section id="s5">
-  <div class="snum">08</div>
+  <div class="snum">10</div>
   <h2 class="collapse-h" id="matrixToggle" style="cursor:pointer;user-select:none">
     <span id="matrixArrow" style="display:inline-block;transition:transform .2s;font-size:15px">▶</span>
     Parameter matrix <span style="font-weight:400;font-size:13px;color:#6b6a5c">· click to expand · full 92-parameter detail</span>
@@ -326,7 +336,7 @@ async function loadData(){
     fetch('chart_points.csv').then(r=>r.text())
   ]);
   // detailed curve files — optional; if missing, those charts show "awaiting data"
-  const curveFiles=["curve_efficiency.csv","curve_pq.csv","curve_temp_derate.csv","curve_voltage_derate.csv","curve_lvrt_hvrt.csv","curve_aux.csv","curve_certs.csv"];
+  const curveFiles=["curve_efficiency.csv","curve_pq.csv","curve_temp_derate.csv","curve_voltage_derate.csv","curve_lvrt_hvrt.csv","curve_aux.csv","curve_certs.csv","igbt_info.csv","curve_igbt_temp.csv"];
   const curveTexts=await Promise.all(curveFiles.map(f=>fetch(f).then(r=>r.ok?r.text():"").catch(()=>"")));
   const CURVES=Object.fromEntries(curveFiles.map((f,i)=>[f, curveTexts[i]?parseCSV(curveTexts[i]):[]]));
   const drows=parseCSV(dtxt), head=drows[0], rawV=head.slice(4);
@@ -439,7 +449,7 @@ async function loadData(){
 loadData().then(({D,CH,CURVES})=>{
 const V=D.vendors, MODELS=D.models, S=D.scores, C=D.composite, T=D.tiers, W=D.weights, DG=D.disp_gaps, P=D.params;
 // vendor colors for charts
-const PALETTE=["#1f7a3d","#c07a1e","#2b6cb0","#7a4fb0","#b23b3b","#0f766e","#a16207","#9333a3","#4b5563","#be185d"];
+const PALETTE=["#3B9B43","#c07a1e","#2b6cb0","#7a4fb0","#b23b3b","#0f766e","#a16207","#9333a3","#4b5563","#be185d"];
 const VCOL={}; V.forEach((v,i)=>VCOL[v]=PALETTE[i%PALETTE.length]);
 
 const _u={eff:"Efficiency",temp:"High-temp full power",gfm:"Grid-forming / inertia",ovl:"Overload capability",
@@ -460,7 +470,7 @@ const CMP=D.completeness||{};
 const order=[...V].sort((a,b)=> (C[b]-C[a]) || ((CMP[b]||0)-(CMP[a]||0)) );
 document.getElementById('tiers').innerHTML = order.map((v,i)=>{
   const t=T[v]; const comp=CMP[v]||0;
-  const compColor = comp>=70?'#1f7a3d':(comp>=45?'#c07a1e':'#b23b3b');
+  const compColor = comp>=70?'#3B9B43':(comp>=45?'#c07a1e':'#b23b3b');
   const prov = comp<60 ? `<div class="prov">⚠ provisional · thin data</div>` : '';
   return `<div class="card ${t}">
     <div class="rank">#${i+1}</div>
@@ -694,6 +704,7 @@ document.getElementById('charts').innerHTML = chartDerate()+chartDC()+chartOvl()
   attach(document.getElementById('curves'));
   attach(document.getElementById('auxchart'));
   attach(document.getElementById('certchart'));
+  attach(document.getElementById('igbtcurve'));
 })();
 
 // ===== DETAILED PERFORMANCE CURVES =====
@@ -756,8 +767,8 @@ document.getElementById('charts').innerHTML = chartDerate()+chartDC()+chartOvl()
       } else {
         // overlapping: one dot, tooltip lists every vendor stacked here, plus a count badge
         const list=grp.map(p=>p.vendor+": "+p.y).join("|");
-        paths+=`<circle cx="${sx}" cy="${sy}" r="5" fill="#14532d" stroke="#fff" stroke-width="1.5" data-tip="${grp.length} vendors at ${xLabel} ${grp[0].x}||${list}"/>`;
-        paths+=`<text x="${sx+7}" y="${sy-5}" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#14532d;font-weight:700">×${grp.length}</text>`;
+        paths+=`<circle cx="${sx}" cy="${sy}" r="5" fill="#1B4D2E" stroke="#fff" stroke-width="1.5" data-tip="${grp.length} vendors at ${xLabel} ${grp[0].x}||${list}"/>`;
+        paths+=`<text x="${sx+7}" y="${sy-5}" style="font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#1B4D2E;font-weight:700">×${grp.length}</text>`;
       }
     });
     const empty = vendorsWithData.length===0
@@ -804,7 +815,7 @@ document.getElementById('charts').innerHTML = chartDerate()+chartDC()+chartOvl()
   let bars='';
   rows.forEach((r,i)=>{
     const y=pad.t+i*34, col=VCOL[r.vendor]||"#888";
-    bars+=`<text x="${pad.l-10}" y="${y+18}" text-anchor="end" style="font-family:Arial;font-size:13px;font-weight:600;fill:#14532d">${r.vendor}</text>`;
+    bars+=`<text x="${pad.l-10}" y="${y+18}" text-anchor="end" style="font-family:Arial;font-size:13px;font-weight:600;fill:#1B4D2E">${r.vendor}</text>`;
     bars+=`<rect x="${pad.l}" y="${y+5}" width="${Math.max(X(r.kw)-pad.l,2)}" height="22" fill="${col}" opacity=".85" rx="2"/>`;
     bars+=`<text x="${X(r.kw)+6}" y="${y+21}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;fill:#4a4940">${r.kw} kW</text>`;
   });
@@ -824,8 +835,8 @@ document.getElementById('charts').innerHTML = chartDerate()+chartDC()+chartOvl()
   counts.forEach(r=>{
     html+=`<tr><td class="param">${r.v}</td>`+r.cells.map(c=>{
       const yes=String(c).trim().toLowerCase()==='yes';
-      return `<td style="text-align:center;background:${yes?'#eaf6ee':'#fbeaea'};color:${yes?'#1f7a3d':'#b23b3b'};font-weight:700">${yes?'✓':'—'}</td>`;
-    }).join('')+`<td style="text-align:center;font-family:monospace;font-weight:700;color:#14532d">${r.n}/12</td></tr>`;
+      return `<td style="text-align:center;background:${yes?'#e9f4ea':'#fbeaea'};color:${yes?'#3B9B43':'#b23b3b'};font-weight:700">${yes?'✓':'—'}</td>`;
+    }).join('')+`<td style="text-align:center;font-family:monospace;font-weight:700;color:#1B4D2E">${r.n}/12</td></tr>`;
   });
   html+=`</tbody>`;
   el.innerHTML=html;
@@ -842,8 +853,8 @@ document.getElementById('charts').innerHTML = chartDerate()+chartDC()+chartOvl()
   let bars='';
   rows.forEach((r,i)=>{
     const y=pad.t+i*30, col=VCOL[r.v]||"#888", pct=r.n/max;
-    const barColor = r.n>=9?'#1f7a3d':r.n>=6?'#c07a1e':r.n>=1?'#c9a227':'#b23b3b';
-    bars+=`<text x="${pad.l-10}" y="${y+16}" text-anchor="end" style="font-family:Arial;font-size:13px;font-weight:600;fill:#14532d">${r.v}</text>`;
+    const barColor = r.n>=9?'#3B9B43':r.n>=6?'#c07a1e':r.n>=1?'#c9a227':'#b23b3b';
+    bars+=`<text x="${pad.l-10}" y="${y+16}" text-anchor="end" style="font-family:Arial;font-size:13px;font-weight:600;fill:#1B4D2E">${r.v}</text>`;
     bars+=`<rect x="${pad.l}" y="${y+3}" width="${W-pad.l-pad.r}" height="20" fill="#e6e2d3" rx="2"/>`;
     bars+=`<rect x="${pad.l}" y="${y+3}" width="${Math.max(X(r.n)-pad.l,2)}" height="20" fill="${barColor}" rx="2" data-tip="${r.v}||${r.n} of 12 certificates held"/>`;
     bars+=`<text x="${X(r.n)+6}" y="${y+18}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;fill:#4a4940">${r.n}/12</text>`;
@@ -873,7 +884,7 @@ document.getElementById('charts').innerHTML = chartDerate()+chartDC()+chartOvl()
   ITEMS.forEach(([item,nos])=>{
     html+=`<tr><td class="param">${item}</td>`+vendors.map(v=>{
       const ok=nos.some(n=>{const row=getP(n);return row&&complied(row[v]);});
-      return `<td style="text-align:center;background:${ok?'#eaf6ee':'#fbeaea'};color:${ok?'#1f7a3d':'#b23b3b'};font-weight:700;white-space:nowrap">${ok?'✓ Complied':'✗ Not complied'}</td>`;
+      return `<td style="text-align:center;background:${ok?'#e9f4ea':'#fbeaea'};color:${ok?'#3B9B43':'#b23b3b'};font-weight:700;white-space:nowrap">${ok?'✓ Complied':'✗ Not complied'}</td>`;
     }).join('')+`</tr>`;
   });
   html+=`</tbody></table></div>`;
@@ -889,6 +900,48 @@ document.getElementById('charts').innerHTML = chartDerate()+chartDC()+chartOvl()
     wrap.style.display=open?'none':'block';
     arr.style.transform=open?'rotate(0deg)':'rotate(90deg)';
   });
+})();
+
+// ===== IGBT POWER MODULE INFO TABLE =====
+(function(){
+  const el=document.getElementById('igbtinfo'); if(!el)return;
+  const t=CURVES["igbt_info.csv"]; if(!t||!t.length){el.innerHTML='<p style="color:#6b7a70;font-family:monospace">Awaiting IGBT data</p>';return;}
+  const rows=t.slice(1);
+  const anyData=rows.some(r=>r.slice(1).some(c=>c&&c.trim()!==""));
+  let html=`<thead><tr><th>Vendor</th><th>IGBT make</th><th>Module type</th><th>Failure rate (FIT)</th><th>Notes</th></tr></thead><tbody>`;
+  rows.forEach(r=>{
+    const cell=(x)=> (x&&x.trim())? x : '<span style="color:#a99;font-style:italic">awaiting</span>';
+    html+=`<tr><td class="param">${r[0]}</td><td>${cell(r[1])}</td><td>${cell(r[3])}</td><td style="text-align:center">${cell(r[2])}</td><td>${cell(r[4])}</td></tr>`;
+  });
+  html+=`</tbody>`;
+  el.innerHTML=html;
+  if(!anyData) el.insertAdjacentHTML('afterend','<p style="color:#6b7a70;font-family:monospace;font-size:12px;margin-top:8px">IGBT make &amp; failure-rate data not yet collected — fill the IGBT_INFO tab in the master and re-export.</p>');
+})();
+
+// ===== IGBT TEMP vs PERFORMANCE CURVE =====
+(function(){
+  const host=document.getElementById('igbtcurve'); if(!host)return;
+  const t=CURVES["curve_igbt_temp.csv"]||[];
+  const rows=t.slice(1).map(r=>({vendor:r[0],x:parseFloat(r[1]),y:parseFloat(r[2])})).filter(r=>!isNaN(r.y));
+  if(!rows.length){ host.innerHTML='<div class="chart"><h3>IGBT temperature vs performance</h3><div class="sub">% current capability vs junction °C</div><svg viewBox="0 0 430 250"><text x="215" y="125" text-anchor="middle" class="nodata">Awaiting vendor IGBT data</text></svg></div>'; return; }
+  // reuse a simple line chart
+  const W=430,H=250,pad={l:48,r:14,t:14,b:36};
+  const xs=rows.map(r=>r.x), ys=rows.map(r=>r.y);
+  const xd=[Math.min(...xs)-5,Math.max(...xs)+5], yd=[Math.min(...ys)-5,Math.max(...ys)+5];
+  const X=x=>pad.l+(x-xd[0])/(xd[1]-xd[0])*(W-pad.l-pad.r);
+  const Y=y=>H-pad.b-(y-yd[0])/(yd[1]-yd[0])*(H-pad.t-pad.b);
+  const byV={}; rows.forEach(r=>{(byV[r.vendor]=byV[r.vendor]||[]).push([r.x,r.y]);});
+  let g='';
+  for(let i=0;i<=5;i++){const xv=xd[0]+(xd[1]-xd[0])*i/5;g+=`<line class="grid-l" x1="${X(xv)}" y1="${pad.t}" x2="${X(xv)}" y2="${H-pad.b}"/><text class="axlbl" x="${X(xv)}" y="${H-pad.b+13}" text-anchor="middle">${Math.round(xv)}</text>`;}
+  for(let i=0;i<=4;i++){const yv=yd[0]+(yd[1]-yd[0])*i/4;g+=`<line class="grid-l" x1="${pad.l}" y1="${Y(yv)}" x2="${W-pad.r}" y2="${Y(yv)}"/><text class="axlbl" x="${pad.l-6}" y="${Y(yv)+3}" text-anchor="end">${Math.round(yv)}</text>`;}
+  let paths='';
+  Object.keys(byV).forEach(v=>{const pts=byV[v].sort((a,b)=>a[0]-b[0]);const col=VCOL[v]||"#888";
+    if(pts.length>1)paths+=`<path d="${pts.map((p,i)=>(i?'L':'M')+X(p[0])+' '+Y(p[1])).join(' ')}" fill="none" stroke="${col}" stroke-width="2" opacity=".85"/>`;
+    pts.forEach(p=>{paths+=`<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="3.5" fill="${col}" data-tip="${v}||Junction: ${p[0]}°C|Capability: ${p[1]}%"/>`;});
+  });
+  const leg=`<div class="clegend">`+Object.keys(byV).map(v=>`<span><i style="background:${VCOL[v]}"></i>${v}</span>`).join('')+`</div>`;
+  host.innerHTML=`<div class="chart"><h3>IGBT temperature vs performance</h3><div class="sub">% current capability vs junction °C</div>
+    <svg viewBox="0 0 ${W} ${H}">${g}<line class="axis" x1="${pad.l}" y1="${pad.t}" x2="${pad.l}" y2="${H-pad.b}"/><line class="axis" x1="${pad.l}" y1="${H-pad.b}" x2="${W-pad.r}" y2="${H-pad.b}"/>${paths}<text class="axlbl" x="${(pad.l+W-pad.r)/2}" y="${H-2}" text-anchor="middle">Junction temp °C</text></svg>${leg}</div>`;
 })();
 
 }).catch(e=>{document.body.insertAdjacentHTML("afterbegin",'<div style="background:#b23b3b;color:#fff;padding:14px;font-family:monospace">Could not load data.csv / chart_points.csv — make sure both files sit next to index.html in the repo. '+e+'</div>');});

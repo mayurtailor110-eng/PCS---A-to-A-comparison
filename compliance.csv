@@ -1,0 +1,57 @@
+item,vendor,status
+LVRT / HVRT,Hopewind,Complied
+LVRT / HVRT,Hoymiles,Complied
+LVRT / HVRT,Delta,Complied
+LVRT / HVRT,FIMER,Complied
+LVRT / HVRT,Newen,Complied
+LVRT / HVRT,Sineng,Complied
+LVRT / HVRT,Inovance,Complied
+LVRT / HVRT,ENERZOLVE,Complied
+Fault ride-through (FRT),Hopewind,Complied
+Fault ride-through (FRT),Hoymiles,Complied
+Fault ride-through (FRT),Delta,Complied
+Fault ride-through (FRT),FIMER,Complied
+Fault ride-through (FRT),Newen,Complied
+Fault ride-through (FRT),Sineng,Complied
+Fault ride-through (FRT),Inovance,Complied
+Fault ride-through (FRT),ENERZOLVE,Complied
+Frequency response / droop,Hopewind,Complied
+Frequency response / droop,Hoymiles,Complied
+Frequency response / droop,Delta,Complied
+Frequency response / droop,FIMER,Complied
+Frequency response / droop,Newen,Complied
+Frequency response / droop,Sineng,Complied
+Frequency response / droop,Inovance,Complied
+Frequency response / droop,ENERZOLVE,Complied
+Ramp-rate control,Hopewind,Complied
+Ramp-rate control,Hoymiles,Complied
+Ramp-rate control,Delta,Complied
+Ramp-rate control,FIMER,Complied
+Ramp-rate control,Newen,Complied
+Ramp-rate control,Sineng,Complied
+Ramp-rate control,Inovance,Complied
+Ramp-rate control,ENERZOLVE,Complied
+Reactive power support,Hopewind,Complied
+Reactive power support,Hoymiles,Complied
+Reactive power support,Delta,Complied
+Reactive power support,FIMER,Complied
+Reactive power support,Newen,Complied
+Reactive power support,Sineng,Complied
+Reactive power support,Inovance,Complied
+Reactive power support,ENERZOLVE,Complied
+Anti-islanding,Hopewind,Complied
+Anti-islanding,Hoymiles,Complied
+Anti-islanding,Delta,Complied
+Anti-islanding,FIMER,Complied
+Anti-islanding,Newen,Complied
+Anti-islanding,Sineng,Complied
+Anti-islanding,Inovance,Complied
+Anti-islanding,ENERZOLVE,Complied
+Over/under frequency,Hopewind,Complied
+Over/under frequency,Hoymiles,Complied
+Over/under frequency,Delta,Complied
+Over/under frequency,FIMER,Complied
+Over/under frequency,Newen,Complied
+Over/under frequency,Sineng,Complied
+Over/under frequency,Inovance,Complied
+Over/under frequency,ENERZOLVE,Complied
